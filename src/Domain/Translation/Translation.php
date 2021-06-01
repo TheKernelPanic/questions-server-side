@@ -21,9 +21,11 @@ abstract class Translation
     /**
      * Translation constructor.
      * @param Language $language
+     * @param Translatable $translatable
      */
     public function __construct(
-        protected Language $language
+        protected Language $language,
+        protected Translatable $translatable
     )
     {}
 

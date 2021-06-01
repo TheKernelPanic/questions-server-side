@@ -5,6 +5,7 @@ namespace QuestionsDDD\Domain\Answer;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use JetBrains\PhpStorm\Pure;
+use QuestionsDDD\Domain\Question\Question;
 use QuestionsDDD\Domain\Timestampable;
 use QuestionsDDD\Domain\Translation\Translatable;
 use QuestionsDDD\Domain\Translation\Translation;
@@ -29,10 +30,12 @@ class Answer implements Translatable
 
     /**
      * Answer constructor.
+     * @param Question $question
      * @param bool $result
      * @param int $position
      */
     #[Pure] public function __construct(
+        private Question $question,
         private bool $result,
         private int $position
     )
