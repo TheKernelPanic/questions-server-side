@@ -5,6 +5,7 @@ namespace QuestionsDDD\Domain\Answer;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use JetBrains\PhpStorm\Pure;
+use QuestionsDDD\Domain\Timestampable;
 use QuestionsDDD\Domain\Translation\Translatable;
 use QuestionsDDD\Domain\Translation\Translation;
 
@@ -14,6 +15,8 @@ use QuestionsDDD\Domain\Translation\Translation;
  */
 class Answer implements Translatable
 {
+    use Timestampable;
+
     /**
      * @var string
      */

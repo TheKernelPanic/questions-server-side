@@ -4,12 +4,15 @@ declare(strict_types=1);
 namespace QuestionsDDD\Domain\Translation;
 
 use QuestionsDDD\Domain\Language\Language;
+use QuestionsDDD\Domain\Timestampable;
 
 /**
  * Class Translation
  */
 abstract class Translation
 {
+    use Timestampable;
+
     /**
      * @var string
      */
