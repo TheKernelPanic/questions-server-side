@@ -1,0 +1,16 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="QuestionsDDD\Domain\Translation\QuestionTranslation\QuestionTranslation" table="question_translations">
+        <id name="id">
+            <generator strategy="UUID"/>
+        </id>
+        <field name="title" column="title" nullable="false" type="string"/>
+        <field name="createdAt" column="created_at" type="datetime"/>
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
+        <many-to-one field="language" target-entity="QuestionsDDD\Domain\Language\Language">
+            <join-column name="language_id" referenced-column-name="id" nullable="false"/>
+        </many-to-one>
+        <many-to-one field="translatable" target-entity="QuestionsDDD\Domain\Question\Question">
+            <join-column name="question_id" referenced-column-name="id" nullable="false"/>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>
