@@ -31,6 +31,7 @@ return static function(ContainerBuilder $containerBuilder): void {
             $entityManager->getConfiguration()->setMetadataDriverImpl(
                 driverImpl: $container->get(XmlDriver::class)
             );
+            return $entityManager;
         }
     );
     $containerBuilder->addDefinitions($definitions);
