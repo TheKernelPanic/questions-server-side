@@ -9,15 +9,16 @@ return static function(ContainerBuilder $containerBuilder): void {
            'environment_mode' => $_ENV['ENVIRONMENT_MODE'],
            'doctrine' => array(
                'mapping_files' => __DIR__ . '/../ORM/mapping',
-               'domain_files' => __DIR__ . '/../../src/Domain',
+               'domain_files' => [__DIR__ . '/../../src/Domain'],
                'database' => array(
-                   'driver' => '',
+                   'driver' => 'pdo_mysql',
                    'charset' => 'utf8',
+                   'collate' => 'utf8mb4_general_ci',
                    'port' => $_ENV['DB_PORT'],
                    'host' => $_ENV['DB_HOST'],
                    'user' => $_ENV['DB_USER'],
                    'password' => $_ENV['DB_PASSWORD'],
-                   'name' => $_ENV['DB_NAME']
+                   'dbname' => $_ENV['DB_NAME']
                )
            )
        )
