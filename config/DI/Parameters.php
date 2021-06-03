@@ -20,6 +20,13 @@ return static function(ContainerBuilder $containerBuilder): void {
                    'password' => $_ENV['DB_PASSWORD'],
                    'dbname' => $_ENV['DB_NAME']
                )
+           ),
+           'logger' => array(
+               'directory' => $_ENV['LOG_DIRECTORY'],
+               'enable_rotation' => $_ENV['LOG_ROTATION'],
+               'filename' => $_ENV['LOG_FILENAME'],
+               'app_name' => $_ENV['LOG_APP_NAME'],
+               'permissions' => 0664
            )
        )
     ));

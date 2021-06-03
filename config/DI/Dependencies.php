@@ -7,7 +7,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Driver\XmlDriver;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\Persistence\Mapping\Driver\FileDriver;
+use Monolog\Handler\RotatingFileHandler;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use Psr\Container\ContainerInterface;
+use Psr\Log\LoggerInterface;
 
 return static function(ContainerBuilder $containerBuilder): void {
 
@@ -32,6 +36,25 @@ return static function(ContainerBuilder $containerBuilder): void {
                 driverImpl: $container->get(XmlDriver::class)
             );
             return $entityManager;
+        },
+
+        LoggerInterface::class => static function (ContainerInterface $container): LoggerInterface {
+            $parameters = $container->get('parameters')['logger'];
+            $logger = new Logger(
+                name: $parameters['app_name']
+            );
+            $path = $parameters['directory'] . '/' . $parameters['filename'] . '.log';
+            $streamClassname = (int) $parameters['enable_rotation'] ? RotatingFileHandler::class : StreamHandler::class;
+
+            $handler = new $streamClassname(
+                filename: $path,
+                level: Logger::DEBUG,
+                bubble: true,
+                filePermission: $parameters['permissions']
+            );
+            $logger->pushHandler(handler: $handler);
+
+            return $logger;
         }
     );
     $containerBuilder->addDefinitions($definitions);
