@@ -7,11 +7,10 @@ namespace QuestionsDDD\Domain\Question;
  * Interface QuestionRepository
  * @package QuestionsDDD\Domain\Question
  */
-interface QuestionRepository
+interface QuestionRepositoryInterface
 {
     /**
      * @param Question $question
-     * @return Question
      */
-    public function save(Question $question): Question;
+    public function transaction(Question $question): void;
 }

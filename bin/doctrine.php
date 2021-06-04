@@ -1,5 +1,5 @@
+!#/usr/bin/env php
 <?php
-declare(strict_types=1);
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
