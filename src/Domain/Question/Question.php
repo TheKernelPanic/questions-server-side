@@ -5,6 +5,7 @@ namespace QuestionsDDD\Domain\Question;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use JetBrains\PhpStorm\Pure;
+use QuestionsDDD\Domain\Answer\Answer;
 use QuestionsDDD\Domain\Timestampable;
 use QuestionsDDD\Domain\Translation\Translatable;
 use QuestionsDDD\Domain\Translation\Translation;
@@ -58,5 +59,24 @@ class Question implements Translatable
     public function getTranslations(): ArrayCollection
     {
         return $this->translations;
+    }
+
+    /**
+     * @param Answer $answer
+     */
+    public function addAnswer(Answer $answer): void
+    {
+        if ($this->answers->contains(element: $answer)) {
+            return;
+        }
+        $this->answers->add(element: $answer);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getAnswers(): ArrayCollection
+    {
+        return $this->answers;
     }
 }
