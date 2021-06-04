@@ -16,6 +16,9 @@ $parameters($containerBuilder);
 $dependencies = require_once __DIR__ . '/config/DI/Dependencies.php';
 $dependencies($containerBuilder);
 
+$repositories = require_once __DIR__ . '/config/DI/Repositories.php';
+$repositories($containerBuilder);
+
 /**
  * TODO: Handle exception
  */
