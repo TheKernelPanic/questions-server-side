@@ -1,0 +1,13 @@
+#!/bin/php
+<?php
+$container = require_once __DIR__ . '/../bootstrap.php';
+$application = new \Symfony\Component\Console\Application();
+
+$commands = array(
+    \QuestionsDDD\Infrastructure\CLI\Language\CreateLanguagesAvailableCommand::class
+);
+
+foreach ($commands as $command) {
+    $application->add(command: new $command(container: $container));
+}
+$application->run();
