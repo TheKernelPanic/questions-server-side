@@ -24,4 +24,13 @@ class LanguageRepository extends DoctrineRepository implements LanguageRepositor
 
         return $language;
     }
+
+    /**
+     * @param array $criteria
+     * @return object|null
+     */
+    public function findOneByCriteria(array $criteria): ?object
+    {
+        return $this->manager->getRepository(Language::class)->findOneBy(criteria: $criteria);
+    }
 }
