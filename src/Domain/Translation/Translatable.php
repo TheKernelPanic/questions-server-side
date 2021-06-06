@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace QuestionsDDD\Domain\Translation;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Interface Translatable
@@ -17,7 +17,7 @@ interface Translatable
     public function addTranslation(Translation $translation): void;
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getTranslations(): ArrayCollection;
+    public function getTranslations(): Collection;
 }

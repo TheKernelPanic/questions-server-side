@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace QuestionsDDD\Domain\Question;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use JetBrains\PhpStorm\Pure;
 use QuestionsDDD\Domain\Answer\Answer;
 use QuestionsDDD\Domain\Timestampable;
@@ -24,14 +25,14 @@ class Question implements Translatable
     private string $id;
 
     /**
-     * @var ArrayCollection
+     * @var Collection
      */
-    private ArrayCollection $translations;
+    private Collection $translations;
 
     /**
-     * @var ArrayCollection
+     * @var Collection
      */
-    private ArrayCollection $answers;
+    private Collection $answers;
 
     /**
      * Question constructor.
@@ -54,9 +55,9 @@ class Question implements Translatable
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getTranslations(): ArrayCollection
+    public function getTranslations(): Collection
     {
         return $this->translations;
     }
@@ -73,9 +74,9 @@ class Question implements Translatable
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getAnswers(): ArrayCollection
+    public function getAnswers(): Collection
     {
         return $this->answers;
     }
