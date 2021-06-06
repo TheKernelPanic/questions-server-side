@@ -22,7 +22,17 @@ class QuestionRepository extends DoctrineRepository implements QuestionRepositor
     public function transaction(Question $question): void
     {
         $flow = function(EntityManagerInterface $entityManager) use ($question) {
-            //TODO: Handle...
+            $entityManager->persist($question);
+            foreach ($question->getTranslations() as $questionTranslation) {
+                $entityManager->persist($questionTranslation);
+            }
+            foreach ($question->getAnswers() as $answer) {
+                $entityManager->persist($answer);
+                foreach ($answer->getTranslations() as $answerTranslation) {
+                    $entityManager->persist($answerTranslation);
+                }
+            }
+            $entityManager->flush();
         };
         $this->transactionalOperation(flow: $flow);
     }
