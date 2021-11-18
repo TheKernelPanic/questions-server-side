@@ -1,9 +1,0 @@
-<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
-    <entity name="QuestionsDDD\Domain\Language\Language" table="language">
-        <id name="id">
-            <generator strategy="UUID"/>
-        </id>
-        <field name="name" column="name" nullable="false" type="string"/>
-        <field name="isoCode" column="iso_code" nullable="false" type="string" unique="true"/>
-    </entity>
-</doctrine-mapping>

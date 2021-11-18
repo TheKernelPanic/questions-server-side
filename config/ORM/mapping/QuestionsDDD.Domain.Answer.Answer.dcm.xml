@@ -3,13 +3,13 @@
         <id name="id">
             <generator strategy="UUID"/>
         </id>
-        <field name="position" column="position" type="integer" nullable="false"/>
-        <field name="result" column="result" type="boolean" nullable="false"/>
+        <field name="text" column="text" length="255"/>
+        <field name="position" column="position" type="integer"/>
+        <field name="result" column="result" type="boolean"/>
         <field name="createdAt" column="created_at" type="datetime"/>
         <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
         <many-to-one field="question" target-entity="QuestionsDDD\Domain\Question\Question">
-            <join-column name="question_id" nullable="false" referenced-column-name="id" on-delete="CASCADE"/>
+            <join-column name="question_id" nullable="false" on-delete="CASCADE"/>
         </many-to-one>
-        <one-to-many field="translations" target-entity="QuestionsDDD\Domain\Translation\AnswerTranslation\AnswerTranslation" mapped-by="translatable"/>
     </entity>
 </doctrine-mapping>
