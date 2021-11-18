@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Infrastructure\Doctrine\Question;
+namespace QuestionsDDD\Infrastructure\Doctrine\Repository\Question;
 
 use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManagerInterface;
 use QuestionsDDD\Domain\Question\Question;
 use QuestionsDDD\Domain\Question\QuestionRepositoryInterface;
-use QuestionsDDD\Infrastructure\Doctrine\DoctrineRepository;
+use QuestionsDDD\Infrastructure\Doctrine\Repository\DoctrineRepository;
 
 /**
  * Class QuestionRepository

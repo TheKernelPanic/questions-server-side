@@ -5,7 +5,7 @@ use DI\ContainerBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use QuestionsDDD\Domain\Question\QuestionRepositoryInterface;
-use QuestionsDDD\Infrastructure\Doctrine\Question\QuestionDoctrineRepository;
+use QuestionsDDD\Infrastructure\Doctrine\Repository\Question\QuestionDoctrineRepository;
 
 return static function(ContainerBuilder $containerBuilder): void {
 
