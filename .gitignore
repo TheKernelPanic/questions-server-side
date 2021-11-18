@@ -3,3 +3,4 @@
 /logs/
 /.idea/
 /.phpunit.cache/
+/.mysql-data/
