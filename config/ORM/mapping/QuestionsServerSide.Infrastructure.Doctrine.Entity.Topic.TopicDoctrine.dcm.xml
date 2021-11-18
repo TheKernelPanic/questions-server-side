@@ -1,0 +1,8 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="QuestionsServerSide\Infrastructure\Doctrine\Entity\Answer\AnswerDoctrine" table="answers">
+        <id name="id">
+            <generator strategy="UUID"/>
+        </id>
+        <field name="description" length="255"/>
+    </entity>
+</doctrine-mapping>
