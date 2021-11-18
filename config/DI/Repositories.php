@@ -4,15 +4,14 @@ declare(strict_types=1);
 use DI\ContainerBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
-use QuestionsServerSide\Domain\Question\QuestionRepositoryInterface;
-use QuestionsServerSide\Infrastructure\Doctrine\Repository\Question\QuestionDoctrineRepository;
 
 return static function(ContainerBuilder $containerBuilder): void {
 
     $definitions = array();
 
     $doctrineRepositories = array(
-        QuestionRepositoryInterface::class => QuestionDoctrineRepository::class
+        QuestionsServerSide\Domain\Question\QuestionRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Question\QuestionDoctrineRepository::class,
+        QuestionsServerSide\Domain\Topic\TopicRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Topic\TopicDoctrineRepository::class
     );
 
     foreach ($doctrineRepositories as $interface => $class) {
