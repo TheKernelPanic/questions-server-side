@@ -4,18 +4,15 @@ declare(strict_types=1);
 use DI\ContainerBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
-use QuestionsDDD\Domain\Language\LanguageRepositoryInterface;
 use QuestionsDDD\Domain\Question\QuestionRepositoryInterface;
-use QuestionsDDD\Infrastructure\Repository\Language\LanguageRepository;
-use QuestionsDDD\Infrastructure\Repository\Question\QuestionRepository;
+use QuestionsDDD\Infrastructure\Doctrine\Question\QuestionDoctrineRepository;
 
 return static function(ContainerBuilder $containerBuilder): void {
 
     $definitions = array();
 
     $doctrineRepositories = array(
-        QuestionRepositoryInterface::class => QuestionRepository::class,
-        LanguageRepositoryInterface::class => LanguageRepository::class
+        QuestionRepositoryInterface::class => QuestionDoctrineRepository::class
     );
 
     foreach ($doctrineRepositories as $interface => $class) {

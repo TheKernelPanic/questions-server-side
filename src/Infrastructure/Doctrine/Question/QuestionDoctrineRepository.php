@@ -1,19 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Infrastructure\Repository\Question;
+namespace QuestionsDDD\Infrastructure\Doctrine\Question;
 
 use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManagerInterface;
 use QuestionsDDD\Domain\Question\Question;
 use QuestionsDDD\Domain\Question\QuestionRepositoryInterface;
-use QuestionsDDD\Infrastructure\Repository\DoctrineRepository;
+use QuestionsDDD\Infrastructure\Doctrine\DoctrineRepository;
 
 /**
  * Class QuestionRepository
  * @package QuestionsDDD\Infrastructure\Repository\Question
  */
-class QuestionRepository extends DoctrineRepository implements QuestionRepositoryInterface
+class QuestionDoctrineRepository extends DoctrineRepository implements QuestionRepositoryInterface
 {
     /**
      * @param Question $question
@@ -23,15 +23,8 @@ class QuestionRepository extends DoctrineRepository implements QuestionRepositor
     {
         $flow = function(EntityManagerInterface $entityManager) use ($question) {
             $entityManager->persist($question);
-            foreach ($question->getTranslations() as $questionTranslation) {
-                $entityManager->persist($questionTranslation);
-            }
-            foreach ($question->getAnswers() as $answer) {
-                $entityManager->persist($answer);
-                foreach ($answer->getTranslations() as $answerTranslation) {
-                    $entityManager->persist($answerTranslation);
-                }
-            }
+            // TODO: Handle
+            // If not cascade persist.
             $entityManager->flush();
         };
         $this->transactionalOperation(flow: $flow);

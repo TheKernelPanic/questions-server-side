@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Infrastructure\Repository;
+namespace QuestionsDDD\Infrastructure\Doctrine;
 
 use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManagerInterface;
