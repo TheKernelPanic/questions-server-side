@@ -44,14 +44,12 @@ return static function(ContainerBuilder $containerBuilder): void {
                 name: $parameters['app_name']
             );
             $path = $parameters['directory'] . '/' . $parameters['filename'] . '.log';
-            $streamClassname = (int) $parameters['enable_rotation'] ? RotatingFileHandler::class : StreamHandler::class;
-
-            $handler = new $streamClassname(
-                filename: $path,
-                level: Logger::DEBUG,
-                bubble: true,
-                filePermission: $parameters['permissions']
-            );
+            if ($parameters['enable_rotation']) {
+                $handler = new RotatingFileHandler(filename: $path, level: Logger::DEBUG, bubble: true, filePermission: $parameters['permissions']);
+                $handler->setFilenameFormat(filenameFormat: '{filename}-{date}', dateFormat: 'Ymd');
+            } else {
+                $handler = new StreamHandler(stream: $path, level: Logger::DEBUG, bubble: true, filePermission: $parameters['permissions']);
+            }
             $logger->pushHandler(handler: $handler);
 
             return $logger;
