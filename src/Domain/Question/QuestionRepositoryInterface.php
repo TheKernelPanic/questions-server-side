@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Domain\Question;
+namespace QuestionsServerSide\Domain\Question;
 
 /**
  * Interface QuestionRepository
- * @package QuestionsDDD\Domain\Question
+ * @package QuestionsServerSide\Domain\Question
  */
 interface QuestionRepositoryInterface
 {

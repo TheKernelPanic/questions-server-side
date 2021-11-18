@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Infrastructure\HttpController;
+namespace QuestionsServerSide\Infrastructure\HttpController;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Interface HttpControllerInterface
- * @package QuestionsDDD\Infrastructure\HttpController
+ * @package QuestionsServerSide\Infrastructure\HttpController
  */
 interface HttpControllerInterface
 {

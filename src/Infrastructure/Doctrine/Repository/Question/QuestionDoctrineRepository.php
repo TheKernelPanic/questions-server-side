@@ -1,17 +1,17 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Infrastructure\Doctrine\Repository\Question;
+namespace QuestionsServerSide\Infrastructure\Doctrine\Repository\Question;
 
 use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManagerInterface;
-use QuestionsDDD\Domain\Question\Question;
-use QuestionsDDD\Domain\Question\QuestionRepositoryInterface;
-use QuestionsDDD\Infrastructure\Doctrine\Repository\DoctrineRepository;
+use QuestionsServerSide\Domain\Question\Question;
+use QuestionsServerSide\Domain\Question\QuestionRepositoryInterface;
+use QuestionsServerSide\Infrastructure\Doctrine\Repository\DoctrineRepository;
 
 /**
  * Class QuestionRepository
- * @package QuestionsDDD\Infrastructure\Repository\Question
+ * @package QuestionsServerSide\Infrastructure\Repository\Question
  */
 class QuestionDoctrineRepository extends DoctrineRepository implements QuestionRepositoryInterface
 {

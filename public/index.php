@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
-use QuestionsDDD\Application\Handler\HttpErrorHandler;
-use QuestionsDDD\Application\Handler\ShutdownHandler;
+use QuestionsServerSide\Application\Handler\HttpErrorHandler;
+use QuestionsServerSide\Application\Handler\ShutdownHandler;
 use Slim\Factory\AppFactory;
 use Slim\Factory\ServerRequestCreatorFactory;
 

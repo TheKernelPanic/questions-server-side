@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Application\Helper;
+namespace QuestionsServerSide\Application\Helper;
 
 use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class HeaderResponseHelper
- * @package QuestionsDDD\Application\Helper
+ * @package QuestionsServerSide\Application\Helper
  */
 class HeaderResponseHelper
 {

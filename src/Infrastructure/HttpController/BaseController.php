@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Infrastructure\HttpController;
+namespace QuestionsServerSide\Infrastructure\HttpController;
 
 
 use Psr\Container\ContainerInterface;
 
 /**
  * Class BaseController
- * @package QuestionsDDD\Infrastructure\HttpController
+ * @package QuestionsServerSide\Infrastructure\HttpController
  */
 abstract class BaseController
 {

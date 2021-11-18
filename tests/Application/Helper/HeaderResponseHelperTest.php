@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Psr\Http\Message\ResponseInterface;
-use QuestionsDDD\Application\Helper\HeaderResponseHelper;
+use QuestionsServerSide\Application\Helper\HeaderResponseHelper;
 
 /**
  * Class HeaderResponseHelperTest
@@ -18,7 +18,7 @@ class HeaderResponseHelperTest extends TestCase
     use ProphecyTrait;
 
     /**
-     * @covers \QuestionsDDD\Application\Helper\HeaderResponseHelper
+     * @covers \QuestionsServerSide\Application\Helper\HeaderResponseHelper
      */
     public function testAddMandatoryHeaders(): void
     {

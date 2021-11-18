@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Application\Handler;
+namespace QuestionsServerSide\Application\Handler;
 
 
 use Slim\Exception\HttpBadRequestException;
@@ -15,7 +15,7 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class HttpErrorHandler
- * @package QuestionsDDD\Application\Handler
+ * @package QuestionsServerSide\Application\Handler
  */
 class HttpErrorHandler extends ErrorHandler
 {

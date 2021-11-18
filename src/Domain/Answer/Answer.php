@@ -1,24 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Domain\Answer;
+namespace QuestionsServerSide\Domain\Answer;
 
 use JetBrains\PhpStorm\Pure;
-use QuestionsDDD\Domain\Question\Question;
-use QuestionsDDD\Domain\Timestampable;
+use QuestionsServerSide\Domain\Question\Question;
+use QuestionsServerSide\Domain\Timestampable;
 
 /**
  * Class Answer
- * @package QuestionsDDD\Domain\Answer
+ * @package QuestionsServerSide\Domain\Answer
  */
 class Answer
 {
     use Timestampable;
-
-    /**
-     * @var string
-     */
-    private string $id;
 
     /**
      * @param string $text
@@ -27,10 +22,10 @@ class Answer
      * @param int $position
      */
     #[Pure] public function __construct(
-        private string $text,
-        private Question $question,
-        private bool $result,
-        private int $position
+        protected string $text,
+        protected Question $question,
+        protected bool $result,
+        protected int $position
     )
     {}
 

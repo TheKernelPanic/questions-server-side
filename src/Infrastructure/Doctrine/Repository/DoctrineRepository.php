@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Infrastructure\Doctrine\Repository;
+namespace QuestionsServerSide\Infrastructure\Doctrine\Repository;
 
 use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManagerInterface;
@@ -9,7 +9,7 @@ use Throwable;
 
 /**
  * Class DoctrineRepository
- * @package QuestionsDDD\Infrastructure\Repository
+ * @package QuestionsServerSide\Infrastructure\Repository
  */
 abstract class DoctrineRepository
 {

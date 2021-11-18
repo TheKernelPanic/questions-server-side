@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Infrastructure\HttpController;
+namespace QuestionsServerSide\Infrastructure\HttpController;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -9,7 +9,7 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Class DefaultController
- * @package QuestionsDDD\Infrastructure\HttpController
+ * @package QuestionsServerSide\Infrastructure\HttpController
  */
 class DefaultController extends BaseController implements HttpControllerInterface
 {

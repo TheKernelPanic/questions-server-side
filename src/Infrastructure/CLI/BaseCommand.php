@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Infrastructure\CLI;
+namespace QuestionsServerSide\Infrastructure\CLI;
 
 
 use Psr\Container\ContainerInterface;
@@ -9,7 +9,7 @@ use Symfony\Component\Console\Command\Command;
 
 /**
  * Class BaseCommand
- * @package QuestionsDDD\Infrastructure\CLI
+ * @package QuestionsServerSide\Infrastructure\CLI
  */
 class BaseCommand extends Command
 {

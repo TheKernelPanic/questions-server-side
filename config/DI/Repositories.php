@@ -4,8 +4,8 @@ declare(strict_types=1);
 use DI\ContainerBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
-use QuestionsDDD\Domain\Question\QuestionRepositoryInterface;
-use QuestionsDDD\Infrastructure\Doctrine\Repository\Question\QuestionDoctrineRepository;
+use QuestionsServerSide\Domain\Question\QuestionRepositoryInterface;
+use QuestionsServerSide\Infrastructure\Doctrine\Repository\Question\QuestionDoctrineRepository;
 
 return static function(ContainerBuilder $containerBuilder): void {
 
