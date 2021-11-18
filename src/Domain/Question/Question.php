@@ -8,14 +8,12 @@ use Doctrine\Common\Collections\Collection;
 use JetBrains\PhpStorm\Pure;
 use QuestionsDDD\Domain\Answer\Answer;
 use QuestionsDDD\Domain\Timestampable;
-use QuestionsDDD\Domain\Translation\Translatable;
-use QuestionsDDD\Domain\Translation\Translation;
 
 /**
  * Class Question
  * @package QuestionsDDD\Domain\Question
  */
-class Question implements Translatable
+class Question
 {
     use Timestampable;
 
@@ -27,39 +25,16 @@ class Question implements Translatable
     /**
      * @var Collection
      */
-    private Collection $translations;
-
-    /**
-     * @var Collection
-     */
     private Collection $answers;
 
     /**
      * Question constructor.
      */
-    #[Pure] public function __construct()
+    #[Pure] public function __construct(
+        private string $title
+    )
     {
-        $this->translations = new ArrayCollection();
         $this->answers = new ArrayCollection();
-    }
-
-    /**
-     * @param Translation $translation
-     */
-    public function addTranslation(Translation $translation): void
-    {
-        if ($this->translations->contains(element: $translation)) {
-            return;
-        }
-        $this->translations->add(element: $translation);
-    }
-
-    /**
-     * @return Collection
-     */
-    public function getTranslations(): Collection
-    {
-        return $this->translations;
     }
 
     /**
@@ -79,5 +54,21 @@ class Question implements Translatable
     public function getAnswers(): Collection
     {
         return $this->answers;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->id;
     }
 }
