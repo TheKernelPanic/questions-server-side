@@ -22,4 +22,4 @@ $repositories($containerBuilder);
 $containerBuilder->useAutowiring(bool: false);
 $containerBuilder->useAnnotations(bool: false);
 
-$container = $containerBuilder->build();
+return $containerBuilder->build();
