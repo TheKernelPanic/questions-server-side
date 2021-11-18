@@ -1,5 +1,5 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
-    <entity name="QuestionsServerSide\Infrastructure\Doctrine\Entity\Answer\AnswerDoctrine" table="answers">
+    <entity name="QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine" table="topics">
         <id name="id">
             <generator strategy="UUID"/>
         </id>
