@@ -21,7 +21,8 @@
     "http-interop/http-factory-guzzle": "^1.0",
     "laminas/laminas-diactoros": "^2.6",
     "symfony/console": "^5.3",
-    "jms/serializer": "^3.15"
+    "jms/serializer": "^3.15",
+    "symfony/yaml": "^5.3"
   },
   "autoload": {
     "psr-4": {
