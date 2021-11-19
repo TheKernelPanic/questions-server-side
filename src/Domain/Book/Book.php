@@ -3,15 +3,19 @@ declare(strict_types=1);
 
 namespace QuestionsServerSide\Domain\Book;
 
+use QuestionsServerSide\Domain\Timestampable;
+
 class Book
 {
+    use Timestampable;
+
     /**
      * @param string $title
-     * @param string $author
+     * @param string|null $author
      */
     public function __construct(
        protected string $title,
-       protected string $author
+       protected ?string $author
     ) {}
 
     /**

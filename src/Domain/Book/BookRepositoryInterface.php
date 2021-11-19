@@ -12,4 +12,9 @@ interface BookRepositoryInterface extends RepositoryInterface
      * @return Book
      */
     public function save(Book $book): Book;
+
+    /**
+     * @return array
+     */
+    public function findAll(): array;
 }

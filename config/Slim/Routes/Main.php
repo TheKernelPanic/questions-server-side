@@ -20,6 +20,13 @@ return static function (App $application): void {
         ->setName(name: 'NewQuestion');
 
     $application
+        ->post(
+            pattern: '/newBook',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Book\PostNewController::class
+        )
+        ->setName(name: 'NewBook');
+
+    $application
         ->get(
             pattern: '/getTopics',
             callable: QuestionsServerSide\Infrastructure\HttpController\Topic\GetAllController::class
@@ -32,4 +39,11 @@ return static function (App $application): void {
             callable: QuestionsServerSide\Infrastructure\HttpController\Question\GetAllController::class
         )
         ->setName(name: 'GetQuestions');
+
+    $application
+        ->get(
+            pattern: '/getBooks',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Book\GetAllController::class
+        )
+        ->setName(name: 'GetBooks');
 };

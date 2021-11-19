@@ -5,6 +5,7 @@ namespace QuestionsServerSide\Infrastructure\Doctrine\Repository\Book;
 
 use QuestionsServerSide\Domain\Book\Book;
 use QuestionsServerSide\Domain\Book\BookRepositoryInterface;
+use QuestionsServerSide\Infrastructure\Doctrine\Entity\Book\BookDoctrine;
 use QuestionsServerSide\Infrastructure\Doctrine\Repository\DoctrineRepository;
 
 class BookDoctrineRepository extends DoctrineRepository implements BookRepositoryInterface
@@ -24,5 +25,13 @@ class BookDoctrineRepository extends DoctrineRepository implements BookRepositor
         $this->manager->persist($book);
         $this->manager->flush();
         return $book;
+    }
+
+    /**
+     * @return array
+     */
+    public function findAll(): array
+    {
+        return $this->manager->getRepository(BookDoctrine::class)->findAll();
     }
 }

@@ -1,0 +1,15 @@
+QuestionsServerSide\Infrastructure\Doctrine\Entity\Book\BookDoctrine:
+  properties:
+    id:
+      type: string
+    author:
+      type: string
+    lessons:
+      type: ArrayCollection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine>
+    description:
+      type: string
+    createdAt:
+      type: DateTime<'Y-m-d H:i:s'>
+    updatedAt:
+      exclude: true
+      type: DateTime<'Y-m-d H:i:s'>
