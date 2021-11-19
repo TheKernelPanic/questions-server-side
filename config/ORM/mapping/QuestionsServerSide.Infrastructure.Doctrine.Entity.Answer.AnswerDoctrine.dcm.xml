@@ -6,7 +6,7 @@
         <field name="text" column="text" length="255"/>
         <field name="position" column="position" type="integer"/>
         <field name="result" column="result" type="boolean"/>
-        <field name="createdAt" column="created_at" type="datetime"/>
+        <field name="createdAt" column="created_at" type="datetime_immutable"/>
         <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
         <many-to-one field="question" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Question\QuestionDoctrine">
             <join-column name="question_id" nullable="false" on-delete="CASCADE"/>

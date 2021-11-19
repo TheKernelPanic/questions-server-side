@@ -9,6 +9,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use QuestionsServerSide\Application\Helper\HeaderResponseHelper;
 use QuestionsServerSide\Application\Service\Topic\FindAllService;
 use QuestionsServerSide\Domain\Topic\TopicRepositoryInterface;
+use QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine;
 use QuestionsServerSide\Infrastructure\HttpController\BaseController;
 use QuestionsServerSide\Infrastructure\HttpController\HttpControllerInterface;
 
@@ -25,7 +26,7 @@ class GetAllController extends BaseController implements HttpControllerInterface
             topicRepository: $this->container->get(TopicRepositoryInterface::class)
         );
         $payload = $this->container->get(Serializer::class)
-            ->serialize($service(), 'json');
+            ->serialize(data: $service(), format: 'json');
 
         $response->getBody()->write(string: $payload);
 

@@ -13,4 +13,10 @@ interface QuestionRepositoryInterface
      * @param Question $question
      */
     public function transaction(Question $question): void;
+
+    /**
+     * @param Question $question
+     * @return mixed
+     */
+    public function save(Question $question): Question;
 }

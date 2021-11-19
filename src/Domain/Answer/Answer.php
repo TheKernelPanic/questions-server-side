@@ -52,4 +52,12 @@ class Answer
     {
         return $this->text;
     }
+
+    /**
+     * @param Question $question
+     */
+    public function setQuestion(Question $question): void
+    {
+        $this->question = $question;
+    }
 }

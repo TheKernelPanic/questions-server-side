@@ -13,6 +13,13 @@ return static function (App $application): void {
         ->setName(name: 'CheckHealth');
 
     $application
+        ->post(
+            pattern: '/newQuestion',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Question\PostNewController::class
+        )
+        ->setName(name: 'NewQuestion');
+
+    $application
         ->get(
             pattern: '/getTopics',
             callable: QuestionsServerSide\Infrastructure\HttpController\Topic\GetAllController::class

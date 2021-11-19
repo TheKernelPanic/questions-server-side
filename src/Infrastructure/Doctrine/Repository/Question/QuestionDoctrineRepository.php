@@ -29,4 +29,16 @@ class QuestionDoctrineRepository extends DoctrineRepository implements QuestionR
         };
         $this->transactionalOperation(flow: $flow);
     }
+
+    /**
+     * @param Question $question
+     * @return Question
+     */
+    public function save(Question $question): Question
+    {
+        $this->manager->persist($question);
+        $this->manager->flush();
+
+        return $question;
+    }
 }

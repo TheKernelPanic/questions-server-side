@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace QuestionsServerSide\Infrastructure\Doctrine\Entity\Question;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use QuestionsServerSide\Domain\Answer\Answer;
 use QuestionsServerSide\Domain\Question\Question;
@@ -31,9 +32,9 @@ class QuestionDoctrine extends Question
     }
 
     /**
-     * @return Collection
+     * @return Collection|ArrayCollection
      */
-    public function getAnswers(): Collection
+    public function getAnswers(): Collection|ArrayCollection
     {
         return $this->answers;
     }
