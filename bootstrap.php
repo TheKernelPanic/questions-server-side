@@ -10,16 +10,16 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $containerBuilder = new ContainerBuilder();
 
-$parameters = require_once __DIR__ . '/config/DI/Parameters.php';
+$parameters = require __DIR__ . '/config/DI/Parameters.php';
 $parameters($containerBuilder);
 
-$dependencies = require_once __DIR__ . '/config/DI/Dependencies.php';
+$dependencies = require __DIR__ . '/config/DI/Dependencies.php';
 $dependencies($containerBuilder);
 
-$repositories = require_once __DIR__ . '/config/DI/Repositories.php';
+$repositories = require __DIR__ . '/config/DI/Repositories.php';
 $repositories($containerBuilder);
 
-/**
- * TODO: Handle exception
- */
+$containerBuilder->useAutowiring(bool: false);
+$containerBuilder->useAnnotations(bool: false);
+
 return $containerBuilder->build();

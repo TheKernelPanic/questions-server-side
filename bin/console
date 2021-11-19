@@ -3,9 +3,7 @@
 $container = require_once __DIR__ . '/../bootstrap.php';
 $application = new \Symfony\Component\Console\Application();
 
-$commands = array(
-    \QuestionsDDD\Infrastructure\CLI\Language\CreateLanguagesAvailableCommand::class
-);
+$commands = array();
 
 foreach ($commands as $command) {
     $application->add(command: new $command(container: $container));

@@ -23,7 +23,7 @@ return static function(ContainerBuilder $containerBuilder): void {
            ),
            'logger' => array(
                'directory' => $_ENV['LOG_DIRECTORY'],
-               'enable_rotation' => $_ENV['LOG_ROTATION'],
+               'enable_rotation' => $_ENV['LOG_ROTATION'] == '1',
                'filename' => $_ENV['LOG_FILENAME'],
                'app_name' => $_ENV['LOG_APP_NAME'],
                'permissions' => 0664

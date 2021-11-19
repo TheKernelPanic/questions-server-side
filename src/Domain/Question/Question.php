@@ -1,83 +1,31 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Domain\Question;
+namespace QuestionsServerSide\Domain\Question;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use JetBrains\PhpStorm\Pure;
-use QuestionsDDD\Domain\Answer\Answer;
-use QuestionsDDD\Domain\Timestampable;
-use QuestionsDDD\Domain\Translation\Translatable;
-use QuestionsDDD\Domain\Translation\Translation;
+use QuestionsServerSide\Domain\Timestampable;
 
 /**
  * Class Question
- * @package QuestionsDDD\Domain\Question
+ * @package QuestionsServerSide\Domain\Question
  */
-class Question implements Translatable
+class Question
 {
     use Timestampable;
 
     /**
-     * @var string
-     */
-    private string $id;
-
-    /**
-     * @var Collection
-     */
-    private Collection $translations;
-
-    /**
-     * @var Collection
-     */
-    private Collection $answers;
-
-    /**
      * Question constructor.
      */
-    #[Pure] public function __construct()
-    {
-        $this->translations = new ArrayCollection();
-        $this->answers = new ArrayCollection();
-    }
+    public function __construct(
+        protected string $title
+    )
+    {}
 
     /**
-     * @param Translation $translation
+     * @return string
      */
-    public function addTranslation(Translation $translation): void
+    public function getTitle(): string
     {
-        if ($this->translations->contains(element: $translation)) {
-            return;
-        }
-        $this->translations->add(element: $translation);
-    }
-
-    /**
-     * @return Collection
-     */
-    public function getTranslations(): Collection
-    {
-        return $this->translations;
-    }
-
-    /**
-     * @param Answer $answer
-     */
-    public function addAnswer(Answer $answer): void
-    {
-        if ($this->answers->contains(element: $answer)) {
-            return;
-        }
-        $this->answers->add(element: $answer);
-    }
-
-    /**
-     * @return Collection
-     */
-    public function getAnswers(): Collection
-    {
-        return $this->answers;
+        return $this->title;
     }
 }

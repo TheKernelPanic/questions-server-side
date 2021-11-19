@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Application\Handler;
+namespace QuestionsServerSide\Application\Handler;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpInternalServerErrorException;
@@ -10,7 +10,7 @@ use function error_get_last, ob_get_clean, ob_clean;
 
 /**
  * Class ShutdownHandler
- * @package QuestionsDDD\Application\Handler
+ * @package QuestionsServerSide\Application\Handler
  */
 class ShutdownHandler
 {

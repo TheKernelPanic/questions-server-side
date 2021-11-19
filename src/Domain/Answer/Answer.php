@@ -1,53 +1,38 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Domain\Answer;
+namespace QuestionsServerSide\Domain\Answer;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use JetBrains\PhpStorm\Pure;
-use QuestionsDDD\Domain\Question\Question;
-use QuestionsDDD\Domain\Timestampable;
-use QuestionsDDD\Domain\Translation\Translatable;
-use QuestionsDDD\Domain\Translation\Translation;
+use QuestionsServerSide\Domain\Question\Question;
+use QuestionsServerSide\Domain\Timestampable;
 
 /**
  * Class Answer
- * @package QuestionsDDD\Domain\Answer
+ * @package QuestionsServerSide\Domain\Answer
  */
-class Answer implements Translatable
+class Answer
 {
     use Timestampable;
 
     /**
-     * @var string
-     */
-    private string $id;
-
-    /**
-     * @var Collection
-     */
-    private Collection $translations;
-
-    /**
-     * Answer constructor.
+     * @param string $text
      * @param Question $question
      * @param bool $result
      * @param int $position
      */
     #[Pure] public function __construct(
-        private Question $question,
-        private bool $result,
-        private int $position
+        protected string $text,
+        protected Question $question,
+        protected bool $result,
+        protected int $position
     )
-    {
-        $this->translations = new ArrayCollection();
-    }
+    {}
 
     /**
      * @return bool
      */
-    public function isResult(): bool
+    public function getResult(): bool
     {
         return $this->result;
     }
@@ -61,21 +46,18 @@ class Answer implements Translatable
     }
 
     /**
-     * @param Translation $translation
+     * @return string
      */
-    public function addTranslation(Translation $translation): void
+    public function getText(): string
     {
-        if ($this->translations->contains(element: $translation)) {
-            return;
-        }
-        $this->translations->add(element: $translation);
+        return $this->text;
     }
 
     /**
-     * @return Collection
+     * @param Question $question
      */
-    public function getTranslations(): Collection
+    public function setQuestion(Question $question): void
     {
-        return $this->translations;
+        $this->question = $question;
     }
 }

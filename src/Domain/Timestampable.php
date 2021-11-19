@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsDDD\Domain;
+namespace QuestionsServerSide\Domain;
 
 use DateTimeInterface;
 
 /**
  * Trait Timestampable
- * @package QuestionsDDD\Domain
+ * @package QuestionsServerSide\Domain
  */
 trait Timestampable
 {

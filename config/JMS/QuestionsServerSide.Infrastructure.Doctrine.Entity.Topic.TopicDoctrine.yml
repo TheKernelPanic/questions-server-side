@@ -1,0 +1,7 @@
+QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine:
+  exclusion_policy: ALL
+  properties:
+    id:
+      type: string
+    description:
+      type: string

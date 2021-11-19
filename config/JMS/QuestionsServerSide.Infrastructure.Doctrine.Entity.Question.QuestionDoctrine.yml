@@ -1,0 +1,14 @@
+QuestionsServerSide\Infrastructure\Doctrine\Entity\Question\QuestionDoctrine:
+  properties:
+    id:
+      type: string
+    title:
+      type: string
+    answers:
+      type: ArrayCollection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Answer\AnswerDoctrine>
+    createdAt:
+      expose: true
+      type: DateTime<'Y-m-d H:i:s'>
+    updatedAt:
+      expose: true
+      type: DateTime<'Y-m-d H:i:s'>

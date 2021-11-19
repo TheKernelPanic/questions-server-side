@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  questions_server_side:
+    image: onkernelpanic/docker-nginx-php8-fpm:1.2.0
+    container_name: questions_server_side_application
+    tty: true
+    ports:
+      - "80:80"
+    volumes:
+      - "./:/var/www/work-directory"
+    depends_on:
+      - database
+    networks:
+      - questions_server_side_network
+
+  database:
+    image: mysql:5.7.36
+    container_name: questions_server_side_database
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./.mysql-data:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    networks:
+      - questions_server_side_network
+
+networks:
+  questions_server_side_network:
+    driver: bridge
+
+

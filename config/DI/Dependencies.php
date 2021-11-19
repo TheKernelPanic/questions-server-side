@@ -7,6 +7,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Driver\XmlDriver;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\Persistence\Mapping\Driver\FileDriver;
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerBuilder;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -44,17 +47,25 @@ return static function(ContainerBuilder $containerBuilder): void {
                 name: $parameters['app_name']
             );
             $path = $parameters['directory'] . '/' . $parameters['filename'] . '.log';
-            $streamClassname = (int) $parameters['enable_rotation'] ? RotatingFileHandler::class : StreamHandler::class;
-
-            $handler = new $streamClassname(
-                filename: $path,
-                level: Logger::DEBUG,
-                bubble: true,
-                filePermission: $parameters['permissions']
-            );
+            if ($parameters['enable_rotation']) {
+                $handler = new RotatingFileHandler(filename: $path, level: Logger::DEBUG, bubble: true, filePermission: $parameters['permissions']);
+                $handler->setFilenameFormat(filenameFormat: '{filename}-{date}', dateFormat: 'Ymd');
+            } else {
+                $handler = new StreamHandler(stream: $path, level: Logger::DEBUG, bubble: true, filePermission: $parameters['permissions']);
+            }
             $logger->pushHandler(handler: $handler);
 
             return $logger;
+        },
+
+        Serializer::class => static function (ContainerInterface $container): Serializer {
+            return SerializerBuilder::create()
+                ->setSerializationContextFactory(static function() {
+                    return SerializationContext::create()
+                        ->setSerializeNull(bool: true);
+                })
+                ->addMetadataDir(dir: __DIR__ . '/../JMS/')
+                ->build();
         }
     );
     $containerBuilder->addDefinitions($definitions);

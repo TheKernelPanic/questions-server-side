@@ -1,0 +1,12 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine" table="lesson">
+        <id name="id">
+            <generator strategy="UUID"/>
+        </id>
+        <field name="description" length="255" />
+        <field name="position" type="integer" />
+        <many-to-one field="book" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Book\BookDoctrine">
+            <join-column on-delete="CASCADE" name="book_id"/>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>
