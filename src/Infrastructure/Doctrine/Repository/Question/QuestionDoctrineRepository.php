@@ -7,6 +7,7 @@ use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManagerInterface;
 use QuestionsServerSide\Domain\Question\Question;
 use QuestionsServerSide\Domain\Question\QuestionRepositoryInterface;
+use QuestionsServerSide\Infrastructure\Doctrine\Entity\Question\QuestionDoctrine;
 use QuestionsServerSide\Infrastructure\Doctrine\Repository\DoctrineRepository;
 
 /**
@@ -40,5 +41,13 @@ class QuestionDoctrineRepository extends DoctrineRepository implements QuestionR
         $this->manager->flush();
 
         return $question;
+    }
+
+    /**
+     * @return array
+     */
+    public function findAll(): array
+    {
+        return $this->manager->getRepository(QuestionDoctrine::class)->findAll();
     }
 }

@@ -10,6 +10,11 @@ namespace QuestionsServerSide\Domain\Question;
 interface QuestionRepositoryInterface
 {
     /**
+     * @return array
+     */
+    public function findAll(): array;
+
+    /**
      * @param Question $question
      */
     public function transaction(Question $question): void;

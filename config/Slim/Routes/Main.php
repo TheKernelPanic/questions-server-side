@@ -25,4 +25,11 @@ return static function (App $application): void {
             callable: QuestionsServerSide\Infrastructure\HttpController\Topic\GetAllController::class
         )
         ->setName(name: 'GetAllTopics');
+
+    $application
+        ->get(
+            pattern: '/getQuestions',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Question\GetAllController::class
+        )
+        ->setName(name: 'GetQuestions');
 };
