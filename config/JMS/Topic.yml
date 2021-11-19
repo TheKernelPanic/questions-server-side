@@ -1,0 +1,6 @@
+QuestionsServerSide\Domain\Topic\Topic:
+  properties:
+    id:
+      type: string
+    description:
+      type: string
