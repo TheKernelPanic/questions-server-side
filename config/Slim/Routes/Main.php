@@ -11,4 +11,11 @@ return static function (App $application): void {
             callable: QuestionsServerSide\Infrastructure\HttpController\DefaultController::class
         )
         ->setName(name: 'CheckHealth');
+
+    $application
+        ->get(
+            pattern: '/getTopics',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Topic\GetAllController::class
+        )
+        ->setName(name: 'GetAllTopics');
 };
