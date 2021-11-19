@@ -64,7 +64,7 @@ return static function(ContainerBuilder $containerBuilder): void {
                     return SerializationContext::create()
                         ->setSerializeNull(bool: true);
                 })
-                ->addMetadataDir(dir: __DIR__ . '/../JMS')
+                ->addMetadataDir(dir: __DIR__ . '/../JMS/')
                 ->build();
         }
     );
