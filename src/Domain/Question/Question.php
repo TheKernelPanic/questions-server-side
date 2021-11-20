@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace QuestionsServerSide\Domain\Question;
 
 use QuestionsServerSide\Domain\Timestampable;
+use QuestionsServerSide\Domain\Topic\Topic;
 
 /**
  * Class Question
@@ -12,6 +13,11 @@ use QuestionsServerSide\Domain\Timestampable;
 class Question
 {
     use Timestampable;
+
+    /**
+     * @var Topic|null
+     */
+    protected ?Topic $topic;
 
     /**
      * Question constructor.
@@ -27,5 +33,21 @@ class Question
     public function getTitle(): string
     {
         return $this->title;
+    }
+
+    /**
+     * @return Topic|null
+     */
+    public function getTopic(): ?Topic
+    {
+        return $this->topic;
+    }
+
+    /**
+     * @param Topic|null $topic
+     */
+    public function setTopic(?Topic $topic): void
+    {
+        $this->topic = $topic;
     }
 }
