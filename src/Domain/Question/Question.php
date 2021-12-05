@@ -15,11 +15,6 @@ class Question
     use Timestampable;
 
     /**
-     * @var Topic|null
-     */
-    protected ?Topic $topic;
-
-    /**
      * Question constructor.
      */
     public function __construct(
@@ -33,21 +28,5 @@ class Question
     public function getTitle(): string
     {
         return $this->title;
-    }
-
-    /**
-     * @return Topic|null
-     */
-    public function getTopic(): ?Topic
-    {
-        return $this->topic;
-    }
-
-    /**
-     * @param Topic|null $topic
-     */
-    public function setTopic(?Topic $topic): void
-    {
-        $this->topic = $topic;
     }
 }

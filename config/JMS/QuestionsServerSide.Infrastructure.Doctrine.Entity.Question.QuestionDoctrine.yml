@@ -13,5 +13,4 @@ QuestionsServerSide\Infrastructure\Doctrine\Entity\Question\QuestionDoctrine:
       expose: true
       type: DateTime<'Y-m-d H:i:s'>
     topic:
-      exclude: true
       type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine
