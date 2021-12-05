@@ -8,6 +8,8 @@ QuestionsServerSide\Infrastructure\Doctrine\Entity\Book\BookDoctrine:
       type: ArrayCollection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine>
     description:
       type: string
+    topic:
+      type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine
     createdAt:
       type: DateTime<'Y-m-d H:i:s'>
     updatedAt:
