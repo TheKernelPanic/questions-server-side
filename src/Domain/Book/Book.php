@@ -4,10 +4,16 @@ declare(strict_types=1);
 namespace QuestionsServerSide\Domain\Book;
 
 use QuestionsServerSide\Domain\Timestampable;
+use QuestionsServerSide\Domain\Topic\Topic;
 
 class Book
 {
     use Timestampable;
+
+    /**
+     * @var Topic|null
+     */
+    protected ?Topic $topic;
 
     /**
      * @param string $title
@@ -48,5 +54,21 @@ class Book
     public function setAuthor(string $author): void
     {
         $this->author = $author;
+    }
+
+    /**
+     * @return Topic|null
+     */
+    public function getTopic(): ?Topic
+    {
+        return $this->topic;
+    }
+
+    /**
+     * @param Topic|null $topic
+     */
+    public function setTopic(?Topic $topic): void
+    {
+        $this->topic = $topic;
     }
 }
