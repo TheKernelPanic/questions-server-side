@@ -14,3 +14,5 @@ QuestionsServerSide\Infrastructure\Doctrine\Entity\Question\QuestionDoctrine:
       type: DateTime<'Y-m-d H:i:s'>
     topic:
       type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine
+    lesson:
+      type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine

@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use QuestionsServerSide\Domain\Answer\Answer;
 use QuestionsServerSide\Domain\Question\Question;
+use QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine;
 use QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine;
 
 class QuestionDoctrine extends Question
@@ -25,6 +26,11 @@ class QuestionDoctrine extends Question
      * @var TopicDoctrine|null
      */
     protected ?TopicDoctrine $topic;
+
+    /**
+     * @var LessonDoctrine|null
+     */
+    protected ?LessonDoctrine $lesson;
 
     /**
      * @param Answer $answer
@@ -67,5 +73,21 @@ class QuestionDoctrine extends Question
     public function getId(): string
     {
         return $this->id;
+    }
+
+    /**
+     * @return LessonDoctrine|null
+     */
+    public function getLessonD(): ?LessonDoctrine
+    {
+        return $this->lesson;
+    }
+
+    /**
+     * @param LessonDoctrine|null $lesson
+     */
+    public function setLesson(?LessonDoctrine $lesson): void
+    {
+        $this->lesson = $lesson;
     }
 }
