@@ -38,4 +38,13 @@ class LessonDoctrineRepository extends DoctrineRepository implements LessonRepos
     {
         return $this->manager->getRepository(LessonDoctrine::class)->findAll();
     }
+
+    /**
+     * @param array $criteria
+     * @return array
+     */
+    public function findManyByCriteria(array $criteria): array
+    {
+        return $this->manager->getRepository(LessonDoctrine::class)->findBy($criteria);
+    }
 }
