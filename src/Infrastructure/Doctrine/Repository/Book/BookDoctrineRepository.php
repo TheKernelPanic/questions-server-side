@@ -16,8 +16,7 @@ class BookDoctrineRepository extends DoctrineRepository implements BookRepositor
      */
     public function findOneByCriteria(array $criteria): ?object
     {
-        // TODO: Implement findOneByCriteria() method.
-        return null;
+        return $this->manager->getRepository(BookDoctrine::class)->findOneBy($criteria);
     }
 
     public function save(Book $book): Book
