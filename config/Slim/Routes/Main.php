@@ -46,4 +46,25 @@ return static function (App $application): void {
             callable: QuestionsServerSide\Infrastructure\HttpController\Book\GetAllController::class
         )
         ->setName(name: 'GetBooks');
+
+    $application
+        ->get(
+            pattern: '/getLessons',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Lesson\GetAllController::class
+        )
+        ->setName(name: 'GetLessons');
+
+    $application
+        ->post(
+            pattern: '/newLesson',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Lesson\PostNewController::class
+        )
+        ->setName(name: 'NewLesson');
+
+    $application
+        ->get(
+            pattern: '/getLessonsByBook/{bookId}',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Lesson\GetByBookController::class
+        )
+        ->setName(name: 'GetLessonsByBook');
 };
