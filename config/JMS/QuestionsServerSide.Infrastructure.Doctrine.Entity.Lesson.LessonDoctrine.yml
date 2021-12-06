@@ -1,0 +1,18 @@
+QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine:
+  properties:
+    description:
+      type: string
+      exclude: true
+    id:
+      type: string
+    book:
+      exclude: true
+      type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Book\BookDoctrine
+    position:
+      type: integer
+    createdAt:
+      type: DateTimeImmutable<'Y-m-d H:i:s'>
+    updatedAt:
+      exclude: true
+      type: DateTime<'Y-m-d H:i:s'>
+
