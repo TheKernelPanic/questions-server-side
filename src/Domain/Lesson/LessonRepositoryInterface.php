@@ -12,4 +12,9 @@ interface LessonRepositoryInterface extends RepositoryInterface
      * @return Lesson
      */
     public function save(Lesson $lesson): Lesson;
+
+    /**
+     * @return array
+     */
+    public function findAll(): array;
 }
