@@ -4,9 +4,12 @@ declare(strict_types=1);
 namespace QuestionsServerSide\Domain\Lesson;
 
 use QuestionsServerSide\Domain\Book\Book;
+use QuestionsServerSide\Domain\Timestampable;
 
 class Lesson
 {
+    use Timestampable;
+
     /**
      * @param Book $book
      * @param string $description
