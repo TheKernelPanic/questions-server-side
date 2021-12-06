@@ -1,7 +1,7 @@
 CONTAINER_NAME="questions_server_side_application"
 
 docker-run:
-	- docker-compose -p questions-manager-project up -d
+	- docker-compose -p questions-manager-project --env-file .env up -d
 composer-install:
 	- docker exec -it $(CONTAINER_NAME) /bin/sh -c "composer install"
 update-schema:
