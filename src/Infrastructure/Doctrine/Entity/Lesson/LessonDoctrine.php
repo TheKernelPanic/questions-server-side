@@ -27,6 +27,14 @@ class LessonDoctrine extends Lesson
     }
 
     /**
+     * @param BookDoctrine $book
+     */
+    public function setBook(BookDoctrine $book): void
+    {
+        $this->book = $book;
+    }
+
+    /**
      * @return BookDoctrine
      */
     public function getBook(): BookDoctrine
