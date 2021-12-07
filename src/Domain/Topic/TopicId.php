@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace QuestionsServerSide\Domain\Book;
+namespace QuestionsServerSide\Domain\Topic;
 
 use QuestionsServerSide\Domain\Id;
 
-class BookId extends Id
+class TopicId extends Id
 {}

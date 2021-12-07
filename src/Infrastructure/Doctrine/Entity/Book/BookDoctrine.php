@@ -6,6 +6,7 @@ namespace QuestionsServerSide\Infrastructure\Doctrine\Entity\Book;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use QuestionsServerSide\Domain\Book\Book;
+use QuestionsServerSide\Domain\Book\BookId;
 
 class BookDoctrine extends Book
 {
@@ -20,11 +21,11 @@ class BookDoctrine extends Book
     private Collection $lessons;
 
     /**
-     * @return string
+     * @return BookId
      */
-    public function getId(): string
+    public function getId(): BookId
     {
-        return $this->id;
+        return new BookId(id: $this->id);
     }
 
     /**

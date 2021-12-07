@@ -19,6 +19,10 @@ class BookDoctrineRepository extends DoctrineRepository implements BookRepositor
         return $this->manager->getRepository(BookDoctrine::class)->findOneBy($criteria);
     }
 
+    /**
+     * @param Book $book
+     * @return Book
+     */
     public function save(Book $book): Book
     {
         $this->manager->persist($book);
@@ -32,5 +36,14 @@ class BookDoctrineRepository extends DoctrineRepository implements BookRepositor
     public function findAll(): array
     {
         return $this->manager->getRepository(BookDoctrine::class)->findAll();
+    }
+
+    /**
+     * @param array $criteria
+     * @return array
+     */
+    public function findManyByCriteria(array $criteria): array
+    {
+        return $this->manager->getRepository(BookDoctrine::class)->findBy(criteria: $criteria);
     }
 }
