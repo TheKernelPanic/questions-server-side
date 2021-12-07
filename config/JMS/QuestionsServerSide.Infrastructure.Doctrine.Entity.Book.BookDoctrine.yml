@@ -5,6 +5,7 @@ QuestionsServerSide\Infrastructure\Doctrine\Entity\Book\BookDoctrine:
     author:
       type: string
     lessons:
+      exclude: true
       type: ArrayCollection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine>
     description:
       type: string
