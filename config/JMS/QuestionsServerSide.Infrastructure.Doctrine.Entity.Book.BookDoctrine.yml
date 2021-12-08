@@ -1,18 +1,12 @@
 QuestionsServerSide\Infrastructure\Doctrine\Entity\Book\BookDoctrine:
+  exclusion_policy: ALL
   properties:
     id:
       type: string
-    author:
-      type: string
+      groups: [INPUT, OUTPUT]
     lessons:
-      exclude: true
       type: ArrayCollection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine>
-    description:
-      type: string
+      groups: [OUTPUT]
     topic:
       type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine
-    createdAt:
-      type: DateTime<'Y-m-d H:i:s'>
-    updatedAt:
-      exclude: true
-      type: DateTime<'Y-m-d H:i:s'>
+      groups: [OUTPUT]

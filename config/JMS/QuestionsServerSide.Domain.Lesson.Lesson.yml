@@ -1,0 +1,12 @@
+QuestionsServerSide\Domain\Lesson\Lesson:
+  exclusion_policy: ALL
+  properties:
+    description:
+      type: string
+      groups: [INPUT, OUTPUT]
+    position:
+      type: integer
+      groups: [INPUT, OUTPUT]
+    createdAt:
+      type: DateTimeInterface<'Y-m-d H:i:s'>
+      groups: [OUTPUT]

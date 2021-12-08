@@ -9,6 +9,8 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\Persistence\Mapping\Driver\FileDriver;
 use JMS\Serializer\Construction\DoctrineObjectConstructor;
 use JMS\Serializer\Construction\UnserializeObjectConstructor;
+use JMS\Serializer\DeserializationContext;
+use JMS\Serializer\Exclusion\GroupsExclusionStrategy;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
@@ -71,12 +73,19 @@ return static function(ContainerBuilder $containerBuilder): void {
                         fallbackConstructor: new UnserializeObjectConstructor()
                     )
                 )
-                ->setSerializationContextFactory(static function() {
-                    return SerializationContext::create()
-                        ->setSerializeNull(bool: true);
-                })
                 ->addMetadataDir(dir: __DIR__ . '/../JMS/')
                 ->build();
+        },
+
+        DeserializationContext::class => static function(): DeserializationContext {
+            return DeserializationContext::create()
+                ->addExclusionStrategy(new GroupsExclusionStrategy(['INPUT']));
+        },
+
+        SerializationContext::class => static function(): SerializationContext {
+            return SerializationContext::create()
+                ->addExclusionStrategy(new GroupsExclusionStrategy(['OUTPUT']))
+                ->setSerializeNull(bool: true);
         }
     );
     $containerBuilder->addDefinitions($definitions);

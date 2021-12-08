@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace QuestionsServerSide\Infrastructure\HttpController\Lesson;
 
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\Serializer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -39,8 +40,9 @@ final class GetByBookController extends BaseController implements HttpController
         );
         $response->getBody()->write(
             string: $this->container->get(Serializer::class)->serialize(
-                $service(book: $book),
-                'json'
+                data: $service(book: $book),
+                format: 'json',
+                context: $this->container->get(SerializationContext::class)
             )
         );
         return HeaderResponseHelper::addMandatoryHeaders(

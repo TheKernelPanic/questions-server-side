@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace QuestionsServerSide\Infrastructure\HttpController\Lesson;
 
+use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\Exception\Exception;
 use JMS\Serializer\Serializer;
 use Psr\Http\Message\ResponseInterface;
@@ -27,9 +28,10 @@ final class PostNewController extends BaseController implements HttpControllerIn
     {
         try {
             $lesson = $this->container->get(Serializer::class)->deserialize(
-                $request->getBody()->getContents(),
-                LessonDoctrine::class,
-                'json'
+                data: $request->getBody()->getContents(),
+                type: LessonDoctrine::class,
+                format: 'json',
+                context: $this->container->get(DeserializationContext::class)
             );
         } catch (Exception $exception) {
             throw new HttpBadRequestException(

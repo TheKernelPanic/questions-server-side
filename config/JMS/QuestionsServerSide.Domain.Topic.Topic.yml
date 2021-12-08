@@ -1,6 +1,6 @@
-QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine:
+QuestionsServerSide\Domain\Topic\Topic:
   exclusion_policy: ALL
   properties:
-    id:
+    description:
       type: string
       groups: [INPUT, OUTPUT]

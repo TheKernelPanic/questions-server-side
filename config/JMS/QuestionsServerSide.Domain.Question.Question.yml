@@ -1,0 +1,11 @@
+QuestionsServerSide\Domain\Question\Question:
+  properties:
+    title:
+      type: string
+      groups: [INPUT, OUTPUT]
+    createdAt:
+      type: DateTimeInterface<'Y-m-d H:i:s'>
+      groups: [OUTPUT]
+    updatedAt:
+      type: DateTimeInterface<'Y-m-d H:i:s'>
+      groups: [OUTPUT]

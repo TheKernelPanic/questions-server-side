@@ -3,19 +3,15 @@ declare(strict_types=1);
 
 namespace QuestionsServerSide\Domain;
 
-use DateTimeImmutable;
 use DateTimeInterface;
 
-/**
- * Trait Timestampable
- * @package QuestionsServerSide\Domain
- */
+
 trait Timestampable
 {
     /**
-     * @var DateTimeImmutable
+     * @var DateTimeInterface
      */
-    protected DateTimeImmutable $createdAt;
+    protected DateTimeInterface $createdAt;
 
     /**
      * @var DateTimeInterface|null

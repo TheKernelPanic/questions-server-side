@@ -1,0 +1,20 @@
+QuestionsServerSide\Domain\Answer\Answer:
+  exclusion_policy: ALL
+  properties:
+    text:
+      type: string
+      groups: [INPUT, OUTPUT]
+    question:
+      exclude: true
+    result:
+      type: boolean
+      groups: [INPUT, OUTPUT]
+    position:
+      type: integer
+      groups: [INPUT, OUTPUT]
+    createdAt:
+      type: DateTimeInterface<'Y-m-d H:i:s'>
+      groups: [OUTPUT]
+    updatedAt:
+      type: DateTimeInterface<'Y-m-d H:i:s'>
+      groups: [OUTPUT]

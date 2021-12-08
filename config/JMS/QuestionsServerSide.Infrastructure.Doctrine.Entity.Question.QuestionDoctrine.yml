@@ -2,17 +2,13 @@ QuestionsServerSide\Infrastructure\Doctrine\Entity\Question\QuestionDoctrine:
   properties:
     id:
       type: string
-    title:
-      type: string
+      groups: [INPUT, OUTPUT]
     answers:
       type: ArrayCollection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Answer\AnswerDoctrine>
-    createdAt:
-      expose: true
-      type: DateTime<'Y-m-d H:i:s'>
-    updatedAt:
-      expose: true
-      type: DateTime<'Y-m-d H:i:s'>
+      groups: [INPUT, OUTPUT]
     topic:
       type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine
+      groups: [INPUT, OUTPUT]
     lesson:
       type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine
+      groups: [INPUT, OUTPUT]

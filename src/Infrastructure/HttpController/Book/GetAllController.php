@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace QuestionsServerSide\Infrastructure\HttpController\Book;
 
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\Serializer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -24,7 +25,8 @@ class GetAllController extends BaseController implements HttpControllerInterface
         $service = new FindAllService(
             bookRepository: $this->container->get(BookRepositoryInterface::class)
         );
-        $payload = $this->container->get(Serializer::class)->serialize(data: $service(), format: 'json');
+        $payload = $this->container->get(Serializer::class)
+            ->serialize(data: $service(), format: 'json', context: $this->container->get(SerializationContext::class));
 
         $response->getBody()->write(string: $payload);
 
