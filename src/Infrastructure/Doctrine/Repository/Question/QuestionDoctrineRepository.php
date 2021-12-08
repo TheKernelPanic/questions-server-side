@@ -50,4 +50,13 @@ class QuestionDoctrineRepository extends DoctrineRepository implements QuestionR
     {
         return $this->manager->getRepository(QuestionDoctrine::class)->findAll();
     }
+
+    /**
+     * @param array $criteria
+     * @return object|null
+     */
+    public function findOneByCriteria(array $criteria): ?object
+    {
+        return $this->manager->getRepository(QuestionDoctrine::class)->findOneBy($criteria);
+    }
 }

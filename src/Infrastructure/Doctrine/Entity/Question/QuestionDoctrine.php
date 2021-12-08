@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use QuestionsServerSide\Domain\Answer\Answer;
 use QuestionsServerSide\Domain\Question\Question;
+use QuestionsServerSide\Domain\Question\QuestionId;
 use QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine;
 use QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine;
 
@@ -68,11 +69,11 @@ class QuestionDoctrine extends Question
     }
 
     /**
-     * @return string
+     * @return QuestionId
      */
-    public function getId(): string
+    public function getId(): QuestionId
     {
-        return $this->id;
+        return new QuestionId($this->id);
     }
 
     /**
