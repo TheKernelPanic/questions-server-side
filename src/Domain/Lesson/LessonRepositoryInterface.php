@@ -12,4 +12,15 @@ interface LessonRepositoryInterface extends RepositoryInterface
      * @return Lesson
      */
     public function save(Lesson $lesson): Lesson;
+
+    /**
+     * @param array $criteria
+     * @return array
+     */
+    public function findManyByCriteria(array $criteria): array;
+
+    /**
+     * @return array
+     */
+    public function findAll(): array;
 }

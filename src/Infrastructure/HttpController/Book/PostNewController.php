@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace QuestionsServerSide\Infrastructure\HttpController\Book;
 
+use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\Serializer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -25,7 +26,8 @@ class PostNewController extends BaseController implements HttpControllerInterfac
         $book = $this->container->get(Serializer::class)->deserialize(
             data: $request->getBody()->getContents(),
             format: 'json',
-            type: BookDoctrine::class
+            type: BookDoctrine::class,
+            context: $this->container->get(DeserializationContext::class)
         );
         $service = new CreateService(
             bookRepository: $this->container->get(BookRepositoryInterface::class)

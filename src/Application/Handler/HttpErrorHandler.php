@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace QuestionsServerSide\Application\Handler;
 
 
+use QuestionsServerSide\Application\Helper\HeaderResponseHelper;
+use QuestionsServerSide\Domain\DomainRecordNotFoundException;
 use Slim\Exception\HttpBadRequestException;
 use Slim\Exception\HttpForbiddenException;
 use Slim\Exception\HttpMethodNotAllowedException;
@@ -32,6 +34,7 @@ class HttpErrorHandler extends ErrorHandler
     protected function respond(): ResponseInterface
     {
         switch (true) {
+            case $this->exception instanceof DomainRecordNotFoundException:
             case $this->exception instanceof HttpNotFoundException:
                 $type = self::RESOURCE_NOT_FOUND;
                 $statusCode = 404;
@@ -82,6 +85,8 @@ class HttpErrorHandler extends ErrorHandler
         $response = $this->responseFactory->createResponse(code: $statusCode);
         $response->getBody()->write(string: $payload);
 
-        return $response->withStatus(code: $statusCode);
+        return HeaderResponseHelper::addMandatoryHeaders(
+            response: $response->withStatus(code: $statusCode)
+        );
     }
 }

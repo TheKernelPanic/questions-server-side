@@ -7,6 +7,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Driver\XmlDriver;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\Persistence\Mapping\Driver\FileDriver;
+use JMS\Serializer\Construction\DoctrineObjectConstructor;
+use JMS\Serializer\Construction\UnserializeObjectConstructor;
+use JMS\Serializer\DeserializationContext;
+use JMS\Serializer\Exclusion\GroupsExclusionStrategy;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
@@ -15,6 +19,7 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
+use QuestionsServerSide\Infrastructure\Doctrine\DeserializeManagerRegistry;
 
 return static function(ContainerBuilder $containerBuilder): void {
 
@@ -60,12 +65,27 @@ return static function(ContainerBuilder $containerBuilder): void {
 
         Serializer::class => static function (ContainerInterface $container): Serializer {
             return SerializerBuilder::create()
-                ->setSerializationContextFactory(static function() {
-                    return SerializationContext::create()
-                        ->setSerializeNull(bool: true);
-                })
+                ->setObjectConstructor(
+                    constructor: new DoctrineObjectConstructor(
+                        managerRegistry: new DeserializeManagerRegistry(
+                            entityManager: $container->get(EntityManagerInterface::class)
+                        ),
+                        fallbackConstructor: new UnserializeObjectConstructor()
+                    )
+                )
                 ->addMetadataDir(dir: __DIR__ . '/../JMS/')
                 ->build();
+        },
+
+        DeserializationContext::class => static function(): DeserializationContext {
+            return DeserializationContext::create()
+                ->addExclusionStrategy(new GroupsExclusionStrategy(['INPUT']));
+        },
+
+        SerializationContext::class => static function(): SerializationContext {
+            return SerializationContext::create()
+                ->addExclusionStrategy(new GroupsExclusionStrategy(['OUTPUT']))
+                ->setSerializeNull(bool: true);
         }
     );
     $containerBuilder->addDefinitions($definitions);

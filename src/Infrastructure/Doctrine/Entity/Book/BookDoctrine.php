@@ -6,6 +6,8 @@ namespace QuestionsServerSide\Infrastructure\Doctrine\Entity\Book;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use QuestionsServerSide\Domain\Book\Book;
+use QuestionsServerSide\Domain\Book\BookId;
+use QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine;
 
 class BookDoctrine extends Book
 {
@@ -20,11 +22,16 @@ class BookDoctrine extends Book
     private Collection $lessons;
 
     /**
-     * @return string
+     * @var TopicDoctrine|null
      */
-    public function getId(): string
+    private ?TopicDoctrine $topic;
+
+    /**
+     * @return BookId
+     */
+    public function getId(): BookId
     {
-        return $this->id;
+        return new BookId(id: $this->id);
     }
 
     /**
@@ -34,4 +41,22 @@ class BookDoctrine extends Book
     {
         return $this->lessons;
     }
+
+    /**
+     * @return TopicDoctrine|null
+     */
+    public function getTopic(): ?TopicDoctrine
+    {
+        return $this->topic;
+    }
+
+    /**
+     * @param TopicDoctrine|null $topic
+     */
+    public function setTopic(?TopicDoctrine $topic): void
+    {
+        $this->topic = $topic;
+    }
+
+
 }

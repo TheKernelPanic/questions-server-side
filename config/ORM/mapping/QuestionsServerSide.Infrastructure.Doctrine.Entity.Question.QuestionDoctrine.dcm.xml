@@ -6,10 +6,16 @@
         <field name="title" column="title" length="255"/>
         <field name="createdAt" column="created_at" type="datetime_immutable"/>
         <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
+        <many-to-one field="topic" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine">
+            <join-column name="topic_id" on-delete="SET NULL" />
+        </many-to-one>
         <one-to-many field="answers" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Answer\AnswerDoctrine" mapped-by="question">
             <cascade>
                 <cascade-persist/>
             </cascade>
         </one-to-many>
+        <many-to-one field="lesson" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine">
+            <join-column name="lesson_id" on-delete="SET NULL" />
+        </many-to-one>
     </entity>
 </doctrine-mapping>

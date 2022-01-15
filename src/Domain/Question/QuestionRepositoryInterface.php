@@ -3,11 +3,13 @@ declare(strict_types=1);
 
 namespace QuestionsServerSide\Domain\Question;
 
+use QuestionsServerSide\Domain\RepositoryInterface;
+
 /**
  * Interface QuestionRepository
  * @package QuestionsServerSide\Domain\Question
  */
-interface QuestionRepositoryInterface
+interface QuestionRepositoryInterface extends RepositoryInterface
 {
     /**
      * @return array

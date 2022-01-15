@@ -1,0 +1,10 @@
+QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine:
+  properties:
+    id:
+      type: string
+      groups: [INPUT, OUTPUT]
+    book:
+      type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Book\BookDoctrine
+      groups: [INPUT]
+
+

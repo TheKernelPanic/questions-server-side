@@ -5,10 +5,7 @@ namespace QuestionsServerSide\Domain;
 
 use DateTimeInterface;
 
-/**
- * Trait Timestampable
- * @package QuestionsServerSide\Domain
- */
+
 trait Timestampable
 {
     /**

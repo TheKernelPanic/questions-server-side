@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace QuestionsServerSide\Infrastructure\HttpController\Question;
 
+use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\Serializer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -23,9 +24,10 @@ class PostNewController extends BaseController implements HttpControllerInterfac
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $question = $this->container->get(Serializer::class)->deserialize(
-            $request->getBody()->getContents(),
-            QuestionDoctrine::class,
-            'json'
+            data: $request->getBody()->getContents(),
+            type: QuestionDoctrine::class,
+            format: 'json',
+            context: $this->container->get(DeserializationContext::class)
         );
         $service = new CreateService(
             questionRepository: $this->container->get(QuestionRepositoryInterface::class)

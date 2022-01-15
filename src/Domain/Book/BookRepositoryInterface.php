@@ -17,4 +17,10 @@ interface BookRepositoryInterface extends RepositoryInterface
      * @return array
      */
     public function findAll(): array;
+
+    /**
+     * @param array $criteria
+     * @return array
+     */
+    public function findManyByCriteria(array $criteria): array;
 }

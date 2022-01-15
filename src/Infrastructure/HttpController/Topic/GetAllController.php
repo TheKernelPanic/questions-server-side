@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace QuestionsServerSide\Infrastructure\HttpController\Topic;
 
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\Serializer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -25,11 +26,13 @@ class GetAllController extends BaseController implements HttpControllerInterface
         $service = new FindAllService(
             topicRepository: $this->container->get(TopicRepositoryInterface::class)
         );
-        $payload = $this->container->get(Serializer::class)
-            ->serialize(data: $service(), format: 'json');
-
-        $response->getBody()->write(string: $payload);
-
+        $response->getBody()->write(
+            string: $this->container->get(Serializer::class)->serialize(
+                data: $service(),
+                format: 'json',
+                context: $this->container->get(SerializationContext::class)
+            )
+        );
         return HeaderResponseHelper::addMandatoryHeaders(
             response: $response
                 ->withStatus(code: 200)

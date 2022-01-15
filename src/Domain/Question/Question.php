@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace QuestionsServerSide\Domain\Question;
 
 use QuestionsServerSide\Domain\Timestampable;
+use QuestionsServerSide\Domain\Topic\Topic;
 
 /**
  * Class Question

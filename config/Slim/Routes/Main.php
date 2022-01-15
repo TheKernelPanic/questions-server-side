@@ -1,9 +1,21 @@
 <?php
 declare(strict_types=1);
 
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use QuestionsServerSide\Application\Helper\HeaderResponseHelper;
 use Slim\App;
 
 return static function (App $application): void {
+
+    $application
+        ->options(
+            pattern: '/{routes:.+}',
+            callable: function (ServerRequestInterface $request, ResponseInterface $response) {
+                return HeaderResponseHelper::addMandatoryHeaders($response->withStatus(code: 200));
+            }
+        )
+        ->setName(name: 'JavascriptPreflight');
 
     $application
         ->get(
@@ -46,4 +58,39 @@ return static function (App $application): void {
             callable: QuestionsServerSide\Infrastructure\HttpController\Book\GetAllController::class
         )
         ->setName(name: 'GetBooks');
+
+    $application
+        ->get(
+            pattern: '/getLessons',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Lesson\GetAllController::class
+        )
+        ->setName(name: 'GetLessons');
+
+    $application
+        ->post(
+            pattern: '/newLesson',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Lesson\PostNewController::class
+        )
+        ->setName(name: 'NewLesson');
+
+    $application
+        ->get(
+            pattern: '/getLessonsByBook/{bookId}',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Lesson\GetByBookController::class
+        )
+        ->setName(name: 'GetLessonsByBook');
+
+    $application
+        ->get(
+            pattern: '/getBooksByTopic/{topicId}',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Book\GetByTopicController::class
+        )
+        ->setName(name: 'GetBooksByTopic');
+
+    $application
+        ->get(
+            pattern: '/getQuestion/{questionId}',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Question\GetByIdController::class
+        )
+        ->setName(name: 'GetQuestion');
 };

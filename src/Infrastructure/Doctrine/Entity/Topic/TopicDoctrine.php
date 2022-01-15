@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic;
 
 use QuestionsServerSide\Domain\Topic\Topic;
+use QuestionsServerSide\Domain\Topic\TopicId;
 
 class TopicDoctrine extends Topic
 {
@@ -13,10 +14,10 @@ class TopicDoctrine extends Topic
     private string $id;
 
     /**
-     * @return string
+     * @return TopicId
      */
-    public function getId(): string
+    public function getId(): TopicId
     {
-        return $this->id;
+        return new TopicId(id: $this->id);
     }
 }
