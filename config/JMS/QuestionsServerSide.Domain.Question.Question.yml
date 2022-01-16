@@ -3,6 +3,9 @@ QuestionsServerSide\Domain\Question\Question:
     title:
       type: string
       groups: [INPUT, OUTPUT]
+    observations:
+      type: string
+      groups: [INPUT, OUTPUT]
     createdAt:
       type: DateTimeInterface<'Y-m-d H:i:s'>
       groups: [OUTPUT]

@@ -4,6 +4,7 @@
             <generator strategy="UUID"/>
         </id>
         <field name="title" column="title" length="255"/>
+        <field name="observations" column="observations" nullable="true" length="255"/>
         <field name="createdAt" column="created_at" type="datetime_immutable"/>
         <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
         <many-to-one field="topic" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine">
