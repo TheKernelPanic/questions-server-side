@@ -2,7 +2,7 @@
   "authors": [
     {
       "name": "Jorge García",
-      "email": "jgg.jobs.development@gmail.com",
+      "email": "kernelpanic0x000007C4@protonmail.com",
       "homepage": "https://www.youtube.com/channel/UCKnbl-SJdL9su95mu_HjAYQ",
       "role": "Developer"
     }
@@ -22,7 +22,10 @@
     "laminas/laminas-diactoros": "^2.6",
     "symfony/console": "^5.3",
     "jms/serializer": "^3.15",
-    "symfony/yaml": "^5.3"
+    "symfony/yaml": "^5.3",
+    "doctrine/dbal": "2.13.0",
+    "doctrine/cache": "^1.0",
+    "guzzlehttp/guzzle": "^7.4"
   },
   "autoload": {
     "psr-4": {
