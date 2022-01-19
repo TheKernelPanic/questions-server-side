@@ -34,9 +34,9 @@ class QuestionDoctrine extends Question
     protected ?LessonDoctrine $lesson;
 
     /**
-     * @var array
+     * @var Collection
      */
-    protected array $helps;
+    protected Collection $helps;
 
     /**
      * @param Answer $answer
