@@ -13,6 +13,9 @@ class Question
 {
     use Timestampable;
 
+    /**
+     * @var string|null
+     */
     protected ?string $observations;
 
     /**
