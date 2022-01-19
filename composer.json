@@ -40,6 +40,12 @@
   "require-dev": {
     "roave/security-advisories": "dev-latest",
     "phpunit/phpunit": "^9.5",
-    "phpspec/prophecy-phpunit": "^2.0"
+    "phpspec/prophecy-phpunit": "^2.0",
+    "behat/behat": "^3.10"
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/behat --tags '~@notesting'"
+    ]
   }
 }
