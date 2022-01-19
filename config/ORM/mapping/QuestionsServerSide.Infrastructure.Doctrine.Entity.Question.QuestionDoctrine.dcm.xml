@@ -4,6 +4,7 @@
             <generator strategy="UUID"/>
         </id>
         <field name="title" column="title" length="255"/>
+        <field name="observations" column="observations" nullable="true" length="255"/>
         <field name="createdAt" column="created_at" type="datetime_immutable"/>
         <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
         <many-to-one field="topic" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine">
@@ -17,5 +18,15 @@
         <many-to-one field="lesson" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine">
             <join-column name="lesson_id" on-delete="SET NULL" />
         </many-to-one>
+        <many-to-many field="helps" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Help\HelpDoctrine">
+            <join-table name="help_question">
+                <join-columns>
+                    <join-column name="question_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="help_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
     </entity>
 </doctrine-mapping>

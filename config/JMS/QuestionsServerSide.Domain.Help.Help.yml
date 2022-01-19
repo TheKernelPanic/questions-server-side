@@ -1,9 +1,13 @@
-QuestionsServerSide\Domain\Question\Question:
+QuestionsServerSide\Domain\Help\Help:
+  exclusion_policy: ALL
   properties:
     title:
       type: string
       groups: [INPUT, OUTPUT]
-    observations:
+    content:
+      type: string
+      groups: [INPUT, OUTPUT]
+    mimetype:
       type: string
       groups: [INPUT, OUTPUT]
     createdAt:

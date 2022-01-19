@@ -34,6 +34,11 @@ class QuestionDoctrine extends Question
     protected ?LessonDoctrine $lesson;
 
     /**
+     * @var array
+     */
+    protected array $helps;
+
+    /**
      * @param Answer $answer
      */
     public function addAnswer(Answer $answer): void

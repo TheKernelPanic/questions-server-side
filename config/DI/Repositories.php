@@ -13,7 +13,8 @@ return static function(ContainerBuilder $containerBuilder): void {
         QuestionsServerSide\Domain\Question\QuestionRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Question\QuestionDoctrineRepository::class,
         QuestionsServerSide\Domain\Topic\TopicRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Topic\TopicDoctrineRepository::class,
         QuestionsServerSide\Domain\Lesson\LessonRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Lesson\LessonDoctrineRepository::class,
-        QuestionsServerSide\Domain\Book\BookRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Book\BookDoctrineRepository::class
+        QuestionsServerSide\Domain\Book\BookRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Book\BookDoctrineRepository::class,
+        QuestionsServerSide\Domain\Help\HelpRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Help\HelpDoctrineRepository::class
     );
 
     foreach ($doctrineRepositories as $interface => $class) {

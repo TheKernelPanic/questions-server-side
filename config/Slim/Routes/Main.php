@@ -93,4 +93,11 @@ return static function (App $application): void {
             callable: QuestionsServerSide\Infrastructure\HttpController\Question\GetByIdController::class
         )
         ->setName(name: 'GetQuestion');
+
+    $application
+        ->post(
+            pattern: '/newHelp',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Help\PostNewController::class
+        )
+        ->setName(name: 'NewHelp');
 };
