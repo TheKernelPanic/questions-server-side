@@ -1,0 +1,18 @@
+QuestionsServerSide\Domain\Help\Help:
+  exclusion_policy: ALL
+  properties:
+    title:
+      type: string
+      groups: [INPUT, OUTPUT]
+    content:
+      type: string
+      groups: [INPUT, OUTPUT]
+    mimetype:
+      type: string
+      groups: [INPUT, OUTPUT]
+    createdAt:
+      type: DateTimeInterface<'Y-m-d H:i:s'>
+      groups: [OUTPUT]
+    updatedAt:
+      type: DateTimeInterface<'Y-m-d H:i:s'>
+      groups: [OUTPUT]
