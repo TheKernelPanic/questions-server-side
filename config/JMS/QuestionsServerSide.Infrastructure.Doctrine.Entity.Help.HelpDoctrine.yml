@@ -1,0 +1,11 @@
+QuestionsServerSide\Infrastructure\Doctrine\Entity\Help\HelpDoctrine:
+  properties:
+    id:
+      type: string
+      groups: [INPUT, OUTPUT]
+    topic:
+      type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine
+      groups: [ INPUT, OUTPUT ]
+    lesson:
+      type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine
+      groups: [ INPUT, OUTPUT ]
