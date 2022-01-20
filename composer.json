@@ -25,7 +25,8 @@
     "symfony/yaml": "^5.3",
     "doctrine/dbal": "2.13.0",
     "doctrine/cache": "^1.0",
-    "guzzlehttp/guzzle": "^7.4"
+    "guzzlehttp/guzzle": "^7.4",
+    "respect/validation": "^2.2"
   },
   "autoload": {
     "psr-4": {
