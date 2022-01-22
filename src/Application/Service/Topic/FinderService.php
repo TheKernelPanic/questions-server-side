@@ -6,6 +6,7 @@ namespace QuestionsServerSide\Application\Service\Topic;
 use QuestionsServerSide\Domain\Topic\Topic;
 use QuestionsServerSide\Domain\Topic\TopicId;
 use QuestionsServerSide\Domain\Topic\TopicNotFoundException;
+use function is_null;
 
 final class FinderService extends TopicService
 {
