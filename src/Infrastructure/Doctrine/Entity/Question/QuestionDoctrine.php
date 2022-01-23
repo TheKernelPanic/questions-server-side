@@ -6,6 +6,7 @@ namespace QuestionsServerSide\Infrastructure\Doctrine\Entity\Question;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use QuestionsServerSide\Domain\Answer\Answer;
+use QuestionsServerSide\Domain\Help\Help;
 use QuestionsServerSide\Domain\Question\Question;
 use QuestionsServerSide\Domain\Question\QuestionId;
 use QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine;
@@ -95,5 +96,22 @@ class QuestionDoctrine extends Question
     public function setLesson(?LessonDoctrine $lesson): void
     {
         $this->lesson = $lesson;
+    }
+
+    /**
+     * @return Collection|ArrayCollection
+     */
+    public function getHelps(): Collection|ArrayCollection
+    {
+        return $this->helps;
+    }
+
+
+    public function addHelp(Help $help): void
+    {
+        if ($this->helps->contains(element: $help)) {
+            return;
+        }
+        $this->helps->add(element: $help);
     }
 }

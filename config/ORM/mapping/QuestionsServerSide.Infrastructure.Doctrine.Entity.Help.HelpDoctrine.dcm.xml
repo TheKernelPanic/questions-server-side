@@ -9,8 +9,12 @@
         <field name="createdAt" column="created_at" type="datetime_immutable"/>
         <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
 
-        <many-to-one field="topic" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\topic\TopicDoctrine">
+        <many-to-one field="topic" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine">
             <join-column referenced-column-name="id" nullable="true" name="topic_id"/>
+        </many-to-one>
+
+        <many-to-one field="book" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Book\BookDoctrine">
+            <join-column referenced-column-name="id" nullable="true" name="book_id"/>
         </many-to-one>
 
         <many-to-one field="lesson" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine">

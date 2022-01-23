@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace QuestionsServerSide\Infrastructure\Doctrine\Entity\Help;
 
+use QuestionsServerSide\Domain\Book\Book;
 use QuestionsServerSide\Domain\Help\Help;
 use QuestionsServerSide\Domain\Help\HelpId;
 use QuestionsServerSide\Domain\Lesson\Lesson;
@@ -19,6 +20,11 @@ class HelpDoctrine extends Help
      * @var Topic|null
      */
     private ?Topic $topic;
+
+    /**
+     * @var Book|null
+     */
+    private ?Book $book;
 
     /**
      * @var Lesson|null
@@ -47,5 +53,21 @@ class HelpDoctrine extends Help
     public function getLesson(): ?Lesson
     {
         return $this->lesson;
+    }
+
+    /**
+     * @return Book|null
+     */
+    public function getBook(): ?Book
+    {
+        return $this->book;
+    }
+
+    /**
+     * @param Book|null $book
+     */
+    public function setBook(?Book $book): void
+    {
+        $this->book = $book;
     }
 }

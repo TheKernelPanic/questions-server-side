@@ -13,5 +13,5 @@ QuestionsServerSide\Infrastructure\Doctrine\Entity\Question\QuestionDoctrine:
       type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine
       groups: [INPUT, OUTPUT]
     helps:
-      type: Doctrine\Common\Collections\Collection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Help\HelpDoctrine>
+      type: ArrayCollection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Help\HelpDoctrine>
       groups: [OUTPUT]
