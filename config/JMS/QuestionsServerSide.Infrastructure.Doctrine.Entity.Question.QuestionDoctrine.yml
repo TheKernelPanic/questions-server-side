@@ -14,4 +14,4 @@ QuestionsServerSide\Infrastructure\Doctrine\Entity\Question\QuestionDoctrine:
       groups: [INPUT, OUTPUT]
     helps:
       type: ArrayCollection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Help\HelpDoctrine>
-      groups: [OUTPUT]
+      groups: [INPUT, OUTPUT]
