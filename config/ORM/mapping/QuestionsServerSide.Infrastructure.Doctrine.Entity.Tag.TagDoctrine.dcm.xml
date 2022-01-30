@@ -1,0 +1,10 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="QuestionsServerSide\Infrastructure\Doctrine\Entity\Tag\TagDoctrine" table="tags">
+        <id name="id">
+            <generator strategy="UUID"/>
+        </id>
+        <field name="slug" column="slug" length="255" nullable="false" unique="true"/>
+        <field name="rawText" column="raw_text" length="255" nullable="false"/>
+        <field name="createdAt" column="created_at" type="datetime_immutable" />
+    </entity>
+</doctrine-mapping>
