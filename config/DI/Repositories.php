@@ -14,7 +14,8 @@ return static function(ContainerBuilder $containerBuilder): void {
         QuestionsServerSide\Domain\Topic\TopicRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Topic\TopicDoctrineRepository::class,
         QuestionsServerSide\Domain\Lesson\LessonRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Lesson\LessonDoctrineRepository::class,
         QuestionsServerSide\Domain\Book\BookRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Book\BookDoctrineRepository::class,
-        QuestionsServerSide\Domain\Help\HelpRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Help\HelpDoctrineRepository::class
+        QuestionsServerSide\Domain\Help\HelpRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Help\HelpDoctrineRepository::class,
+        QuestionsServerSide\Domain\Tag\TagRepositoryInterface::class => QuestionsServerSide\Infrastructure\Doctrine\Repository\Tag\TagDoctrineRepository::class
     );
 
     foreach ($doctrineRepositories as $interface => $class) {

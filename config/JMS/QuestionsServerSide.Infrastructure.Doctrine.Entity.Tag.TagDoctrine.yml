@@ -1,0 +1,5 @@
+QuestionsServerSide\Infrastructure\Doctrine\Entity\Tag\TagDoctrine:
+  properties:
+    id:
+      type: string
+      groups: [INPUT, OUTPUT]
