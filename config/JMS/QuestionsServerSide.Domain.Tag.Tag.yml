@@ -1,0 +1,11 @@
+QuestionsServerSide\Domain\Tag\Tag:
+  properties:
+    slug:
+      type: string
+      groups: [INPUT, OUTPUT]
+    rawText:
+      type: string
+      groups: [INPUT, OUTPUT]
+    createdAt:
+      type: DateTimeInterface<'Y-m-d H:i:s'>
+      groups: [OUTPUT]
