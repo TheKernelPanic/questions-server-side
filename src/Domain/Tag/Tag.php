@@ -10,11 +10,11 @@ class Tag
     use Timestampable;
 
     /**
-     * @param string $slug
+     * @param string|null $slug
      * @param string $rawText
      */
     public function __construct(
-        protected string $slug,
+        protected ?string $slug,
         protected string $rawText
     )
     {}
@@ -27,13 +27,19 @@ class Tag
         return $this->slug;
     }
 
-
-
     /**
      * @return string
      */
     public function getRawText(): string
     {
         return $this->rawText;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
     }
 }
