@@ -12,3 +12,6 @@ QuestionsServerSide\Infrastructure\Doctrine\Entity\Question\QuestionDoctrine:
     lesson:
       type: QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine
       groups: [INPUT, OUTPUT]
+    helps:
+      type: ArrayCollection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Help\HelpDoctrine>
+      groups: [INPUT, OUTPUT]

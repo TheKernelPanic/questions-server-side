@@ -100,4 +100,10 @@ return static function (App $application): void {
             callable: QuestionsServerSide\Infrastructure\HttpController\Help\PostNewController::class
         )
         ->setName(name: 'NewHelp');
+    $application
+        ->get(
+            pattern: '/getHelps/{topicId}',
+            callable: QuestionsServerSide\Infrastructure\HttpController\Help\GetByTopicController::class
+        )
+        ->setName(name: 'GetHelpsByTopic');
 };

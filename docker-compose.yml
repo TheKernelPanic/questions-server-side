@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   questions_server_side:
-    image: onkernelpanic/docker-nginx-php8-fpm:1.2.0
+    image: onkernelpanic/docker-nginx-php8-fpm:2.0.0
     container_name: questions_server_side_application
     tty: true
     ports:

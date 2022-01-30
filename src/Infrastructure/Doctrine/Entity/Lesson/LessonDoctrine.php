@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson;
 
 use QuestionsServerSide\Domain\Lesson\Lesson;
+use QuestionsServerSide\Domain\Lesson\LessonId;
 use QuestionsServerSide\Infrastructure\Doctrine\Entity\Book\BookDoctrine;
 
 class LessonDoctrine extends Lesson
@@ -19,11 +20,11 @@ class LessonDoctrine extends Lesson
     private BookDoctrine $book;
 
     /**
-     * @return string
+     * @return LessonId
      */
-    public function getId(): string
+    public function getId(): LessonId
     {
-        return $this->id;
+        return new LessonId(id: $this->id);
     }
 
     /**

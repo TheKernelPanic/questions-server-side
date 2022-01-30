@@ -1,0 +1,8 @@
+default:
+  suites:
+    tests:
+      paths:
+        - '%paths.base%/tests/Acceptance'
+      contexts:
+        - Tests\Acceptance\DefaultContext:
+            host: 'http://localhost'

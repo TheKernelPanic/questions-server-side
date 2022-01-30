@@ -12,4 +12,10 @@ interface HelpRepositoryInterface extends RepositoryInterface
      * @return Help
      */
     public function save(Help $help): Help;
+
+    /**
+     * @param array $criteria
+     * @return array
+     */
+    public function findByCriteria(array $criteria): array;
 }

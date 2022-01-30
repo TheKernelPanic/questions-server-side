@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace QuestionsServerSide\Infrastructure\Doctrine\Entity\Answer;
 
 use QuestionsServerSide\Domain\Answer\Answer;
+use QuestionsServerSide\Domain\Answer\AnswerId;
 
 class AnswerDoctrine extends Answer
 {
@@ -13,10 +14,10 @@ class AnswerDoctrine extends Answer
     private string $id;
 
     /**
-     * @return string
+     * @return AnswerId
      */
-    public function getId(): string
+    public function getId(): AnswerId
     {
-        return $this->id;
+        return new AnswerId(id: $this->id);
     }
 }
