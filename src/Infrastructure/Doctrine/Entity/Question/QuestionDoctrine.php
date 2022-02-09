@@ -5,11 +5,12 @@ namespace QuestionsServerSide\Infrastructure\Doctrine\Entity\Question;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use QuestionsServerSide\Domain\Answer\Answer;
-use QuestionsServerSide\Domain\Help\Help;
 use QuestionsServerSide\Domain\Question\Question;
 use QuestionsServerSide\Domain\Question\QuestionId;
+use QuestionsServerSide\Infrastructure\Doctrine\Entity\Answer\AnswerDoctrine;
+use QuestionsServerSide\Infrastructure\Doctrine\Entity\Help\HelpDoctrine;
 use QuestionsServerSide\Infrastructure\Doctrine\Entity\Lesson\LessonDoctrine;
+use QuestionsServerSide\Infrastructure\Doctrine\Entity\Tag\TagDoctrine;
 use QuestionsServerSide\Infrastructure\Doctrine\Entity\Topic\TopicDoctrine;
 
 class QuestionDoctrine extends Question
@@ -40,9 +41,15 @@ class QuestionDoctrine extends Question
     protected Collection $helps;
 
     /**
-     * @param Answer $answer
+     * @var Collection
      */
-    public function addAnswer(Answer $answer): void
+    protected Collection $tags;
+
+    /**
+     * @param AnswerDoctrine $answer
+     * @return void
+     */
+    public function addAnswer(AnswerDoctrine $answer): void
     {
         if ($this->answers->contains(element: $answer)) {
             return;
@@ -107,11 +114,35 @@ class QuestionDoctrine extends Question
     }
 
 
-    public function addHelp(Help $help): void
+    /**
+     * @param HelpDoctrine $help
+     * @return void
+     */
+    public function addHelp(HelpDoctrine $help): void
     {
         if ($this->helps->contains(element: $help)) {
             return;
         }
         $this->helps->add(element: $help);
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param TagDoctrine $tag
+     * @return void
+     */
+    public function addTag(TagDoctrine $tag): void
+    {
+        if ($this->tags->contains(element: $tag)) {
+            return;
+        }
+        $this->tags->add(element: $tag);
     }
 }

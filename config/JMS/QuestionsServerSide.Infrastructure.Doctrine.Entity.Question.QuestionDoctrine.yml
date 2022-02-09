@@ -15,3 +15,6 @@ QuestionsServerSide\Infrastructure\Doctrine\Entity\Question\QuestionDoctrine:
     helps:
       type: ArrayCollection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Help\HelpDoctrine>
       groups: [INPUT, OUTPUT]
+    tags:
+      type: ArrayCollection<QuestionsServerSide\Infrastructure\Doctrine\Entity\Tag\TagDoctrine>
+      groups: [INPUT, OUTPUT]
