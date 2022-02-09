@@ -28,5 +28,15 @@
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
+        <many-to-many field="tags" target-entity="QuestionsServerSide\Infrastructure\Doctrine\Entity\Tag\TagDoctrine">
+            <join-table name="tag_question">
+                <join-columns>
+                    <join-column name="question_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="tag_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
     </entity>
 </doctrine-mapping>
