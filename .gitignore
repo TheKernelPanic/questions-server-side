@@ -4,3 +4,5 @@
 /.idea/
 /.phpunit.cache/
 /.mysql-data/
+/.elastic/
+/.scannerwork/
