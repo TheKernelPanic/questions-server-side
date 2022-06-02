@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   questions_server_side:
-    image: onkernelpanic/docker-nginx-php8-fpm:2.0.0
+    image: onkernelpanic/docker-nginx-php8-fpm:2.1.0
     container_name: questions_server_side_application
     tty: true
     ports:
@@ -23,6 +23,24 @@ services:
       - "./.mysql-data:/var/lib/mysql"
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - questions_server_side_network
+
+  elasticsearch:
+    image: elasticsearch:7.14.0
+    container_name: ${ELASTIC_HOST}
+    environment:
+      'discovery.type': single-node
+      'xpack.security.enabled': 'true'
+      'http.cors.enabled': 'true'
+      'http.cors.allow-origin': 'https://app.elasticvue.com'
+      ES_JAVA_OPTS: "-Xms750m -Xmx750m"
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
+    volumes:
+      - "./.elastic/:/usr/share/elasticsearch/data"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
     networks:
       - questions_server_side_network
 
