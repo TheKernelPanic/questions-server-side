@@ -27,6 +27,14 @@ return static function(ContainerBuilder $containerBuilder): void {
                'filename' => $_ENV['LOG_FILENAME'],
                'app_name' => $_ENV['LOG_APP_NAME'],
                'permissions' => 0664
+           ),
+           'elasticsearch' => array(
+               'hosts' => array(
+                   $_ENV['ELASTIC_HOST'] . ':9200'
+               ),
+               'schema' => 'http',
+               'username' => $_ENV['ELASTIC_USER'],
+               'password' => $_ENV['ELASTIC_PASSWORD']
            )
        )
     ));

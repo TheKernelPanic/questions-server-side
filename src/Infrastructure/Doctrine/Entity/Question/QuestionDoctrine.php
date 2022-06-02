@@ -113,7 +113,6 @@ class QuestionDoctrine extends Question
         return $this->helps;
     }
 
-
     /**
      * @param HelpDoctrine $help
      * @return void

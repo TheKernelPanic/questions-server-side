@@ -7,6 +7,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Driver\XmlDriver;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\Persistence\Mapping\Driver\FileDriver;
+use Elastic\Elasticsearch\Client;
+use Elastic\Elasticsearch\ClientBuilder;
 use JMS\Serializer\Construction\DoctrineObjectConstructor;
 use JMS\Serializer\Construction\UnserializeObjectConstructor;
 use JMS\Serializer\DeserializationContext;
@@ -86,6 +88,19 @@ return static function(ContainerBuilder $containerBuilder): void {
             return SerializationContext::create()
                 ->addExclusionStrategy(new GroupsExclusionStrategy(['OUTPUT']))
                 ->setSerializeNull(bool: true);
+        },
+
+        Client::class => static function(ContainerInterface $container): Client {
+            $clientBuilder = ClientBuilder::create();
+            $clientBuilder
+                ->setHosts(
+                    hosts: $container->get('parameters')['elasticsearch']['hosts']
+                )
+                ->setBasicAuthentication(
+                    username: $container->get('parameters')['elasticsearch']['username'],
+                    password: $container->get('parameters')['elasticsearch']['password']
+                );
+            return $clientBuilder->build();
         }
     );
     $containerBuilder->addDefinitions($definitions);
